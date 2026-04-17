@@ -2,8 +2,6 @@ backend:
   name: github
   repo: simfactor06/CATAS-FC-ADMIN
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "fotos/noticias"
 public_folder: "fotos/noticias"
