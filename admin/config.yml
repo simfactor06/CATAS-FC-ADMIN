@@ -2,8 +2,8 @@ backend:
   name: github
   repo: simfactor06/CATAS-FC-ADMIN
   branch: main
-
-local_backend: false
+  auth_type: pkce
+  app_id: Ov23liV0DeByXwiAgd8D
 
 media_folder: "fotos/noticias"
 public_folder: "fotos/noticias"
