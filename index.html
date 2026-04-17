@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CATAS FC</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:system-ui,sans-serif;background:#fff;color:#0d1b2a;}
+.topbar{background:#0d1b2a;color:rgba(255,255,255,0.5);font-size:12px;text-align:center;padding:7px;letter-spacing:1px;}
+.topbar span{color:#4fa3d1;font-weight:500;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;border-bottom:1px solid #e8eaed;background:#fff;position:sticky;top:0;z-index:20;}
+.nav-logo{display:flex;align-items:center;gap:8px;cursor:pointer;}
+.nav-logo img{width:36px;height:36px;object-fit:contain;}
+.nav-logo span{font-size:16px;font-weight:500;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:#0d1b2a;text-decoration:none;cursor:pointer;padding-bottom:3px;border-bottom:2px solid transparent;}
+.nav-links a.active{color:#4fa3d1;border-bottom-color:#4fa3d1;}
+.nav-links a:hover{color:#4fa3d1;}
+.page{display:none;}
+.page.active{display:block;}
+.hero{position:relative;height:520px;background:#0d1b2a;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to right,#0d1b2a 38%,rgba(13,27,42,0.35) 100%);z-index:1;}
+.hero-photo{position:absolute;right:0;top:0;bottom:0;width:62%;object-fit:cover;object-position:top center;}
+.hero-content{position:relative;z-index:2;padding:0 2.5rem 3.5rem;color:white;max-width:520px;}
+.hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:10px;}
+.hero-heading{display:flex;align-items:center;gap:18px;margin-bottom:1rem;}
+.hero-heading h1{font-size:56px;font-weight:500;line-height:1.0;letter-spacing:-1px;}
+.hero-heading h1 strong{color:#4fa3d1;font-weight:500;}
+.hero-escudo{width:88px;height:88px;object-fit:contain;flex-shrink:0;}
+.hero-content p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:2rem;}
+.hero-btns{display:flex;gap:10px;}
+.btn-s{background:#4fa3d1;color:white;border:none;padding:11px 26px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;}
+.btn-o{background:transparent;color:white;border:1px solid rgba(255,255,255,0.25);padding:11px 26px;border-radius:6px;font-size:14px;cursor:pointer;}
+.inicio-bottom{padding:3.5rem 3rem;}
+.sec-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:5px;}
+.sec-title{font-size:28px;font-weight:500;letter-spacing:-0.5px;margin-bottom:1.5rem;}
+.ig-feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
+.ig-follow-btn{display:inline-flex;align-items:center;gap:7px;background:#0d1b2a;color:white;border:none;padding:9px 18px;border-radius:6px;font-size:13px;cursor:pointer;text-decoration:none;}
+.noticias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.noticia{border:1px solid #e8eaed;border-radius:10px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;}
+.noticia:hover{border-color:#4fa3d1;}
+.noticia-img{height:200px;background:#0d1b2a;overflow:hidden;}
+.noticia-img img{width:100%;height:100%;object-fit:cover;}
+.noticia-body{padding:1rem;}
+.noticia-tipo{font-size:11px;color:#4fa3d1;text-transform:uppercase;letter-spacing:1px;font-weight:500;}
+.noticia-titulo{font-size:15px;font-weight:500;margin-top:4px;line-height:1.4;color:#0d1b2a;}
+.page-inner{padding:3rem;}
+.pos-section{margin-bottom:2.5rem;}
+.pos-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
+.plantel-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;}
+.jugador{border:1px solid #e8eaed;border-radius:10px;overflow:hidden;}
+.jugador:hover{border-color:#4fa3d1;}
+.jugador-foto{background:#0d1b2a;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.jugador-foto img{width:65%;height:65%;object-fit:contain;opacity:0.65;}
+.jnum{position:absolute;top:7px;right:7px;background:#4fa3d1;color:white;font-size:10px;font-weight:500;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.jcap{position:absolute;top:7px;left:7px;background:#f59e0b;color:white;font-size:9px;font-weight:500;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
+.jugador-info{padding:.75rem;}
+.jugador-nombre{font-size:13px;font-weight:500;line-height:1.3;}
+.jugador-apodo{font-size:11px;color:#4fa3d1;margin-top:1px;}
+.jugador-pos{font-size:11px;color:#8892a0;margin-top:2px;}
+.fixture-inner{padding:3rem;}
+.fixture-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2.5rem;}
+.fstat{background:#f8f9fb;border-radius:10px;padding:1.2rem;text-align:center;border:1px solid #e8eaed;}
+.fstat-num{font-size:28px;font-weight:500;color:#4fa3d1;}
+.fstat-lbl{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8892a0;margin-top:3px;}
+.partido{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 0;border-bottom:1px solid #e8eaed;}
+.partido:last-child{border-bottom:none;}
+.partido-fecha{font-size:12px;color:#8892a0;width:65px;}
+.partido-equipos{flex:1;font-size:15px;font-weight:500;display:flex;align-items:center;gap:12px;padding:0 1rem;}
+.vs-txt{font-size:12px;color:#8892a0;font-weight:400;}
+.partido-score{font-size:20px;font-weight:500;color:#0d1b2a;min-width:80px;text-align:center;letter-spacing:1px;}
+.badge{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;min-width:70px;text-align:center;}
+.badge-w{background:#e8f5e9;color:#2e7d32;}
+.badge-l{background:#fce8e8;color:#b71c1c;}
+.badge-e{background:#fff8e1;color:#f57f17;}
+.badge-next{background:#e3f2fd;color:#1565c0;}
+.galeria-inner{padding:3rem;}
+.fecha-section{margin-bottom:3rem;}
+.fecha-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
+.fecha-titulo{font-size:16px;font-weight:500;}
+.fecha-sub{font-size:12px;color:#8892a0;}
+.foto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.foto-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#f0f2f5;}
+.foto-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.tienda-inner{padding:3rem;}
+.tienda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem;}
+.producto{border:1px solid #e8eaed;border-radius:12px;overflow:hidden;}
+.producto:hover{border-color:#4fa3d1;}
+.producto-img{background:#f8f9fb;aspect-ratio:1;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.producto-img img{width:100%;height:100%;object-fit:cover;}
+.producto-body{padding:1.25rem;}
+.producto-nombre{font-size:15px;font-weight:500;}
+.producto-desc{font-size:13px;color:#8892a0;margin:4px 0 14px;}
+.producto-footer{display:flex;align-items:center;justify-content:space-between;}
+.precio{font-size:18px;font-weight:500;color:#4fa3d1;}
+.btn-wsp{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:white;border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;text-decoration:none;font-weight:500;}
+footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.footer-logo img{width:32px;}
+.footer-logo span{color:white;font-size:15px;font-weight:500;}
+.footer-center{text-align:center;font-size:12px;line-height:1.8;}
+.founded{color:rgba(255,255,255,0.55);font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+.ig-btn{display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,0.15);padding:8px 18px;border-radius:6px;color:white;font-size:13px;text-decoration:none;}
+.ig-btn:hover{border-color:#4fa3d1;}
+</style>
+</head>
+<body>
+
+<div class="topbar">Apertura 2026 · <span>CATAS FC</span> · Fundado en 2025</div>
+<nav>
+  <div class="nav-logo" onclick="showPage('inicio')">
+    <img src="escudo.jpeg"/>
+    <span>CATAS FC</span>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('inicio')" id="tab-inicio" class="active">Inicio</a>
+    <a onclick="showPage('plantel')" id="tab-plantel">Plantel</a>
+    <a onclick="showPage('fixture')" id="tab-fixture">Fixture</a>
+    <a onclick="showPage('galeria')" id="tab-galeria">Galería</a>
+    <a onclick="showPage('tienda')" id="tab-tienda">Tienda</a>
+  </div>
+</nav>
+
+<!-- INICIO -->
+<div class="page active" id="page-inicio">
+  <div class="hero">
+    <div class="hero-ov"></div>
+    <img class="hero-photo" src="hero.jpeg"/>
+    <div class="hero-content">
+      <div class="hero-tag">Apertura 2026</div>
+      <div class="hero-heading">
+        <h1>Somos<br><strong>CATAS FC</strong></h1>
+        <img class="hero-escudo" src="escudo.jpeg"/>
+      </div>
+      <p>Unidos dentro y fuera de la cancha. Fundados en 2025.</p>
+      <div class="hero-btns">
+        <button class="btn-s" onclick="showPage('plantel')">Ver plantel</button>
+        <button class="btn-o" onclick="showPage('fixture')">Fixture 2026</button>
+      </div>
+    </div>
+  </div>
+  <div class="inicio-bottom">
+    <div class="ig-feed-header">
+      <div>
+        <div class="sec-tag">Instagram</div>
+        <div class="sec-title">Últimas noticias</div>
+      </div>
+      <a class="ig-follow-btn" href="https://www.instagram.com/catasfc_" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+        Seguir @catasfc_
+      </a>
+    </div>
+    <div class="noticias-grid" id="noticias-container">
+      <div style="color:#8892a0;font-size:13px;">Cargando noticias...</div>
+    </div>
+  </div>
+</div>
+
+<!-- PLANTEL -->
+<div class="page" id="page-plantel">
+  <div class="page-inner">
+    <div class="sec-tag">Apertura 2026</div>
+    <div class="sec-title">El plantel</div>
+    <div class="pos-section">
+      <div class="pos-label">Arqueros</div>
+      <div class="plantel-grid">
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">1</div><div class="jcap">C</div></div><div class="jugador-info"><div class="jugador-nombre">Eduardo Marzoratti</div><div class="jugador-apodo">"Chapo"</div><div class="jugador-pos">Arquero</div></div></div>
+      </div>
+    </div>
+    <div class="pos-section">
+      <div class="pos-label">Defensores</div>
+      <div class="plantel-grid">
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">3</div></div><div class="jugador-info"><div class="jugador-nombre">Benja Aciar</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">9</div></div><div class="jugador-info"><div class="jugador-nombre">Alfredo Córdoba</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">4</div></div><div class="jugador-info"><div class="jugador-nombre">Tomás Factor</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">5</div></div><div class="jugador-info"><div class="jugador-nombre">Lautaro Panatti</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">2</div></div><div class="jugador-info"><div class="jugador-nombre">Dan Musicante</div><div class="jugador-apodo">"Ñato"</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">6</div></div><div class="jugador-info"><div class="jugador-nombre">Donato Chazarreta</div><div class="jugador-apodo">"Flako"</div><div class="jugador-pos">Defensor</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">12</div></div><div class="jugador-info"><div class="jugador-nombre">Tomás Rachid</div><div class="jugador-pos">Defensor</div></div></div>
+      </div>
+    </div>
+    <div class="pos-section">
+      <div class="pos-label">Mediocampistas</div>
+      <div class="plantel-grid">
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">7</div></div><div class="jugador-info"><div class="jugador-nombre">Martín Córdoba</div><div class="jugador-apodo">"Kun"</div><div class="jugador-pos">Mediocampista</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">10</div></div><div class="jugador-info"><div class="jugador-nombre">Máximo Wendenbourg</div><div class="jugador-apodo">"Primo Kyle"</div><div class="jugador-pos">Mediocampista</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">21</div></div><div class="jugador-info"><div class="jugador-nombre">Lisandro Vargas</div><div class="jugador-apodo">"Chichi"</div><div class="jugador-pos">Mediocampista</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">69</div></div><div class="jugador-info"><div class="jugador-nombre">Mariano Biancardi</div><div class="jugador-apodo">"Nano"</div><div class="jugador-pos">Mediocampista</div></div></div>
+      </div>
+    </div>
+    <div class="pos-section">
+      <div class="pos-label">Delanteros</div>
+      <div class="plantel-grid">
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">99</div></div><div class="jugador-info"><div class="jugador-nombre">Simón Factor</div><div class="jugador-pos">Delantero</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">18</div></div><div class="jugador-info"><div class="jugador-nombre">Gonzalo Rojas</div><div class="jugador-apodo">"Abuelo"</div><div class="jugador-pos">Delantero</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum" style="font-size:8px;">Nine</div></div><div class="jugador-info"><div class="jugador-nombre">Ramiro Maza</div><div class="jugador-apodo">"Jumario"</div><div class="jugador-pos">Delantero</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIXTURE -->
+<div class="page" id="page-fixture">
+  <div class="fixture-inner">
+    <div class="sec-tag">Apertura 2026</div>
+    <div class="sec-title">Fixture</div>
+    <div class="fixture-stats">
+      <div class="fstat"><div class="fstat-num" id="stat-total">—</div><div class="fstat-lbl">Partidos</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#2e7d32;" id="stat-v">—</div><div class="fstat-lbl">Victorias</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#f57f17;" id="stat-e">—</div><div class="fstat-lbl">Empates</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#b71c1c;" id="stat-d">—</div><div class="fstat-lbl">Derrotas</div></div>
+    </div>
+    <div id="fixture-container"></div>
+  </div>
+</div>
+
+<!-- GALERÍA -->
+<div class="page" id="page-galeria">
+  <div class="galeria-inner">
+    <div class="sec-tag">Temporada 2026</div>
+    <div class="sec-title">Galería</div>
+    <div id="galeria-container"></div>
+  </div>
+</div>
+
+<!-- TIENDA -->
+<div class="page" id="page-tienda">
+  <div class="tienda-inner">
+    <div class="sec-tag">Indumentaria oficial</div>
+    <div class="sec-title">Tienda</div>
+    <div class="tienda-grid" id="tienda-container"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo" onclick="showPage('inicio')">
+    <img src="escudo.jpeg"/>
+    <span>CATAS FC</span>
+  </div>
+  <div class="footer-center">
+    <div class="founded">Fundado en 2025</div>
+    <div>© 2026 CATAS FC · Apertura 2026</div>
+  </div>
+  <a class="ig-btn" href="https://www.instagram.com/catasfc_" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+    @catasfc_
+  </a>
+</footer>
+
+<script>
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('page-'+n).classList.add('active');
+  document.getElementById('tab-'+n).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+const WSP = 'https://wa.me/543834598151';
+const WSP_MSG = {
+  titular: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20titular%20de%20CATAS%20FC',
+  alternativa: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20alternativa%20de%20CATAS%20FC',
+  short: '?text=Hola!%20Quiero%20consultar%20por%20el%20short%20oficial%20de%20CATAS%20FC'
+};
+
+const wspIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>`;
+
+async function loadData() {
+  try {
+    // Fixture
+    const fRes = await fetch('content/resultados/fixture.json');
+    const fData = await fRes.json();
+    renderFixture(fData.partidos);
+
+    // Galería
+    const gRes = await fetch('content/galeria/fotos.json');
+    const gData = await gRes.json();
+    renderGaleria(gData.fechas);
+
+    // Tienda
+    const tRes = await fetch('content/tienda/productos.json');
+    const tData = await tRes.json();
+    renderTienda(tData.productos);
+
+    // Noticias
+    const nRes = await fetch('content/noticias/index.json').catch(()=>null);
+    if(nRes && nRes.ok){
+      const nData = await nRes.json();
+      renderNoticias(nData.noticias || []);
+    } else {
+      renderNoticias([]);
+    }
+  } catch(e) {
+    console.error('Error cargando datos:', e);
+  }
+}
+
+function renderFixture(partidos) {
+  const v = partidos.filter(p=>p.resultado==='Victoria').length;
+  const e = partidos.filter(p=>p.resultado==='Empate').length;
+  const d = partidos.filter(p=>p.resultado==='Derrota').length;
+  document.getElementById('stat-total').textContent = partidos.length;
+  document.getElementById('stat-v').textContent = v;
+  document.getElementById('stat-e').textContent = e;
+  document.getElementById('stat-d').textContent = d;
+
+  const badges = {Victoria:'badge-w',Derrota:'badge-l',Empate:'badge-e',Próximo:'badge-next'};
+  const html = partidos.map(p => `
+    <div class="partido">
+      <div class="partido-fecha">${p.fecha}</div>
+      <div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> ${p.rival}</div>
+      <div class="partido-score">${p.goles_catas} — ${p.goles_rival}</div>
+      <span class="badge ${badges[p.resultado]||'badge-next'}">${p.resultado}</span>
+    </div>`).join('');
+  document.getElementById('fixture-container').innerHTML = html;
+}
+
+function renderGaleria(fechas) {
+  const html = fechas.map(f => `
+    <div class="fecha-section">
+      <div class="fecha-header">
+        <div class="fecha-titulo">${f.titulo}</div>
+        <div class="fecha-sub">${f.subtitulo}</div>
+      </div>
+      <div class="foto-grid">
+        ${f.fotos.map(foto=>`<div class="foto-item"><img src="${foto}" loading="lazy"/></div>`).join('')}
+      </div>
+    </div>`).join('');
+  document.getElementById('galeria-container').innerHTML = html;
+}
+
+function renderTienda(productos) {
+  const msgs = ['titular','alternativa','short'];
+  const html = productos.map((p,i) => `
+    <div class="producto">
+      <div class="producto-img"><img src="${p.imagen}"/></div>
+      <div class="producto-body">
+        <div class="producto-nombre">${p.nombre}</div>
+        <div class="producto-desc">${p.descripcion}</div>
+        <div class="producto-footer">
+          <div class="precio">${p.precio}</div>
+          <a class="btn-wsp" href="${WSP}${WSP_MSG[msgs[i]]||''}" target="_blank">${wspIcon} Consultar</a>
+        </div>
+      </div>
+    </div>`).join('');
+  document.getElementById('tienda-container').innerHTML = html;
+}
+
+function renderNoticias(noticias) {
+  const container = document.getElementById('noticias-container');
+  if(!noticias.length){
+    container.innerHTML = `
+      <div style="grid-column:span 3;text-align:center;padding:3rem;color:#8892a0;font-size:14px;">
+        Las noticias aparecerán acá cuando las publiques desde el panel admin.
+        <br><br>
+        <a href="https://www.instagram.com/catasfc_" target="_blank" style="color:#4fa3d1;text-decoration:none;font-weight:500;">Ver @catasfc_ en Instagram →</a>
+      </div>`;
+    return;
+  }
+  const html = noticias.map(n => `
+    <a class="noticia" href="${n.link}" target="_blank">
+      <div class="noticia-img"><img src="${n.imagen}"/></div>
+      <div class="noticia-body">
+        <div class="noticia-tipo">Instagram</div>
+        <div class="noticia-titulo">${n.title}</div>
+      </div>
+    </a>`).join('');
+  container.innerHTML = html;
+}
+
+loadData();
+</script>
+</body>
+</html>

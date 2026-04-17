@@ -1,0 +1,74 @@
+backend:
+  name: github
+  repo: simfactor06/CATAS-FC
+  branch: main
+
+media_folder: "fotos/noticias"
+public_folder: "fotos/noticias"
+
+collections:
+  - name: "resultados"
+    label: "Resultados"
+    files:
+      - name: "fixture"
+        label: "Fixture"
+        file: "content/resultados/fixture.json"
+        fields:
+          - label: "Partidos"
+            name: "partidos"
+            widget: "list"
+            fields:
+              - {label: "Fecha", name: "fecha", widget: "string"}
+              - {label: "Rival", name: "rival", widget: "string"}
+              - {label: "Goles CATAS", name: "goles_catas", widget: "string", default: "—"}
+              - {label: "Goles rival", name: "goles_rival", widget: "string", default: "—"}
+              - label: "Resultado"
+                name: "resultado"
+                widget: "select"
+                options: ["Victoria", "Derrota", "Empate", "Próximo"]
+                default: "Próximo"
+
+  - name: "galeria"
+    label: "Galería"
+    files:
+      - name: "fotos"
+        label: "Fotos por fecha"
+        file: "content/galeria/fotos.json"
+        fields:
+          - label: "Fechas"
+            name: "fechas"
+            widget: "list"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string"}
+              - {label: "Subtítulo (resultado)", name: "subtitulo", widget: "string"}
+              - label: "Fotos"
+                name: "fotos"
+                widget: "list"
+                field: {label: "Foto", name: "foto", widget: "image"}
+
+  - name: "noticias"
+    label: "Noticias"
+    folder: "content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen", name: "imagen", widget: "image"}
+      - {label: "Link de Instagram", name: "link", widget: "string"}
+      - {label: "Fecha", name: "fecha", widget: "datetime"}
+
+  - name: "tienda"
+    label: "Tienda"
+    files:
+      - name: "productos"
+        label: "Productos"
+        file: "content/tienda/productos.json"
+        fields:
+          - label: "Productos"
+            name: "productos"
+            widget: "list"
+            fields:
+              - {label: "Nombre", name: "nombre", widget: "string"}
+              - {label: "Descripción", name: "descripcion", widget: "string"}
+              - {label: "Precio", name: "precio", widget: "string"}
+              - {label: "Imagen", name: "imagen", widget: "image"}

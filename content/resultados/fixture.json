@@ -1,0 +1,17 @@
+{
+  "partidos": [
+    {"fecha": "Fecha 1", "rival": "Resaca FC", "goles_catas": "2", "goles_rival": "5", "resultado": "Derrota"},
+    {"fecha": "Fecha 2", "rival": "Banchester", "goles_catas": "6", "goles_rival": "2", "resultado": "Victoria"},
+    {"fecha": "Fecha 3", "rival": "Paris San Fernet", "goles_catas": "6", "goles_rival": "6", "resultado": "Empate"},
+    {"fecha": "Fecha 4", "rival": "Desconocidos", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 5", "rival": "Paris San Fernet B", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 6", "rival": "Potrero del Sur", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 7", "rival": "Sportivo", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 8", "rival": "Bidon", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 9", "rival": "La Pampara FC", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 10", "rival": "9420", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 11", "rival": "Paris FC", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 12", "rival": "Zanganos", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"},
+    {"fecha": "Fecha 13", "rival": "Tallerismo", "goles_catas": "—", "goles_rival": "—", "resultado": "Próximo"}
+  ]
+}
