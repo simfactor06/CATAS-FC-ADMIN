@@ -2,7 +2,8 @@ backend:
   name: github
   repo: simfactor06/CATAS-FC-ADMIN
   branch: main
-  base_url: https://catasfc2026sf.netlify.app
+
+local_backend: false
 
 media_folder: "fotos/noticias"
 public_folder: "fotos/noticias"
