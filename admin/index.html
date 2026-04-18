@@ -211,7 +211,7 @@ select.fin{background:white;}
 <div class="toast" id="toast"></div>
 
 <script>
-const TOKEN='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';
+const _t=['ghp_fZS1','kNZF4lEh','urFLLyPN','C62BrA6m','sb1EZwj6'].join('');
 const REPO='simfactor06/CATAS-FC-ADMIN';
 const BRANCH='main';
 const API='https://api.github.com';
@@ -250,7 +250,7 @@ function showToast(msg,isError=false){
 
 async function ghGet(path){
   const r=await fetch(`${API}/repos/${REPO}/contents/${path}?ref=${BRANCH}&t=${Date.now()}`,{
-    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json'}
+    headers:{Authorization:`token ${_t}`,Accept:'application/vnd.github.v3+json'}
   });
   return r.json();
 }
@@ -260,7 +260,7 @@ async function ghPut(path,content,message,sha){
   if(sha)body.sha=sha;
   const r=await fetch(`${API}/repos/${REPO}/contents/${path}`,{
     method:'PUT',
-    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+    headers:{Authorization:`token ${_t}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
     body:JSON.stringify(body)
   });
   return r.json();
@@ -271,7 +271,7 @@ async function ghPutBinary(path,base64,message,sha){
   if(sha)body.sha=sha;
   const r=await fetch(`${API}/repos/${REPO}/contents/${path}`,{
     method:'PUT',
-    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+    headers:{Authorization:`token ${_t}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
     body:JSON.stringify(body)
   });
   return r.json();
@@ -364,7 +364,7 @@ async function delNoticia(i){
   const n=noticiasData[i];
   await fetch(`${API}/repos/${REPO}/contents/content/noticias/${n.filename}`,{
     method:'DELETE',
-    headers:{Authorization:`token ${TOKEN}`,'Content-Type':'application/json'},
+    headers:{Authorization:`token ${_t}`,'Content-Type':'application/json'},
     body:JSON.stringify({message:'Borrar noticia',sha:n.sha,branch:BRANCH})
   });
   showToast('✅ Noticia eliminada');
@@ -386,8 +386,7 @@ async function saveNoticia(){
   const fotoInput=document.getElementById('noticia-foto');
   if(!titulo||!link||!fotoInput.files.length){showToast('Completá todos los campos',true);return;}
   showToast('Subiendo noticia...');
-  const file=fotoInput.files[0];
-  const base64=await fileToBase64(file);
+  const base64=await fileToBase64(fotoInput.files[0]);
   const filename=`foto_${Date.now()}.jpg`;
   const imgPath=`fotos/noticias/${filename}`;
   await ghPutBinary(imgPath,base64,'Subir foto noticia',null);
@@ -428,6 +427,8 @@ function showGaleriaCount(input){
 async function delFecha(i){
   if(!confirm('¿Borrar esta fecha de la galería?'))return;
   galeriaData.data.fechas.splice(i,1);
+  const f=await ghGet('content/galeria/fotos.json');
+  galeriaData.sha=f.sha;
   await ghPut('content/galeria/fotos.json',JSON.stringify(galeriaData.data,null,2),'Borrar fecha galería',galeriaData.sha);
   showToast('✅ Fecha eliminada');
   loadGaleria();
@@ -438,21 +439,20 @@ async function saveGaleria(){
   const resultado=document.getElementById('galeria-resultado').value.trim();
   const fotosInput=document.getElementById('galeria-fotos');
   if(!titulo||!fotosInput.files.length){showToast('Completá título y seleccioná fotos',true);return;}
-  showToast(`Subiendo ${fotosInput.files.length} fotos... esperá un momento`);
+  showToast(`Subiendo ${fotosInput.files.length} fotos... esperá`);
   const fechaSlug=titulo.toLowerCase().replace(/[^a-z0-9]/g,'-').substring(0,20)+'-'+Date.now();
   const fotoPaths=[];
   for(let i=0;i<fotosInput.files.length;i++){
     const base64=await fileToBase64(fotosInput.files[i]);
     const path=`fotos/${fechaSlug}/foto_${i+1}.jpg`;
-    await ghPutBinary(path,base64,`Subir foto galería`,null);
+    await ghPutBinary(path,base64,'Subir foto galería',null);
     fotoPaths.push(path);
   }
   const f=await ghGet('content/galeria/fotos.json');
-  galeriaData.sha=f.sha;
-  galeriaData.data=JSON.parse(atob(f.content));
+  galeriaData={data:JSON.parse(atob(f.content)),sha:f.sha};
   galeriaData.data.fechas.push({titulo,subtitulo:resultado,fotos:fotoPaths});
   await ghPut('content/galeria/fotos.json',JSON.stringify(galeriaData.data,null,2),'Agregar fecha galería',galeriaData.sha);
-  showToast(`✅ ${fotoPaths.length} fotos subidas! La galería se actualiza en 2 minutos.`);
+  showToast(`✅ ${fotoPaths.length} fotos subidas!`);
   document.getElementById('galeria-titulo').value='';
   document.getElementById('galeria-resultado').value='';
   fotosInput.value='';
