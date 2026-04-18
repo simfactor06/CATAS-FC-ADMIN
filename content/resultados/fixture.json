@@ -31,65 +31,65 @@
     {
       "fecha": "Fecha 5",
       "rival": "Paris San Fernet B",
-      "goles_catas": "-",
-      "goles_rival": "-",
-      "resultado": "Próximo"
+      "goles_catas": "5",
+      "goles_rival": "2",
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 6",
       "rival": "Potrero del Sur",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 7",
       "rival": "Sportivo",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 8",
       "rival": "Bidon",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 9",
       "rival": "La Pampara FC",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 10",
       "rival": "9420",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 11",
       "rival": "Paris FC",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 12",
       "rival": "Zanganos",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 13",
       "rival": "Tallerismo",
       "goles_catas": "-",
       "goles_rival": "-",
-      "resultado": "Próximo"
+      "resultado": "Victoria"
     }
   ]
 }
