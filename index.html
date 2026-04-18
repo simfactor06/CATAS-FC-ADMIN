@@ -3,373 +3,497 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CATAS FC</title>
+<title>CATAS FC · Admin</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:system-ui,sans-serif;background:#fff;color:#0d1b2a;}
-.topbar{background:#0d1b2a;color:rgba(255,255,255,0.5);font-size:12px;text-align:center;padding:7px;letter-spacing:1px;}
-.topbar span{color:#4fa3d1;font-weight:500;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;border-bottom:1px solid #e8eaed;background:#fff;position:sticky;top:0;z-index:20;}
-.nav-logo{display:flex;align-items:center;gap:8px;cursor:pointer;}
-.nav-logo img{width:36px;height:36px;object-fit:contain;}
-.nav-logo span{font-size:16px;font-weight:500;}
-.nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:#0d1b2a;text-decoration:none;cursor:pointer;padding-bottom:3px;border-bottom:2px solid transparent;}
-.nav-links a.active{color:#4fa3d1;border-bottom-color:#4fa3d1;}
-.nav-links a:hover{color:#4fa3d1;}
+body{font-family:system-ui,sans-serif;background:#f5f5f5;color:#333;}
+.login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0d1b2a;}
+.login-box{background:white;border-radius:16px;padding:2.5rem;width:340px;text-align:center;}
+.login-logo{width:70px;height:70px;margin:0 auto 1rem;}
+.login-logo img{width:100%;height:100%;object-fit:contain;}
+.login-title{font-size:20px;font-weight:500;margin-bottom:.3rem;}
+.login-sub{font-size:13px;color:#8892a0;margin-bottom:2rem;}
+.login-input{width:100%;border:1px solid #e8eaed;border-radius:8px;padding:10px 14px;font-size:14px;margin-bottom:1rem;}
+.login-btn{width:100%;background:#4fa3d1;color:white;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;}
+.login-error{color:#e53935;font-size:13px;margin-top:.5rem;display:none;}
+.admin{display:none;min-height:100vh;flex-direction:row;}
+.admin.visible{display:flex;}
+.sidebar{width:210px;background:#0d1b2a;color:white;flex-shrink:0;display:flex;flex-direction:column;}
+.sidebar-logo{padding:1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.sidebar-logo div{font-size:15px;font-weight:500;}
+.sidebar-logo span{font-size:11px;color:rgba(255,255,255,0.4);}
+.sidebar-nav{flex:1;padding:1rem 0;}
+.nav-item{padding:.75rem 1.5rem;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.55);border-left:3px solid transparent;}
+.nav-item:hover{background:rgba(255,255,255,0.05);color:white;}
+.nav-item.active{background:rgba(79,163,209,0.15);color:#4fa3d1;border-left-color:#4fa3d1;}
+.sidebar-footer{padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,0.08);}
+.logout-btn{font-size:12px;color:rgba(255,255,255,0.4);cursor:pointer;background:none;border:none;}
+.main{flex:1;padding:2rem;overflow-y:auto;}
 .page{display:none;}
 .page.active{display:block;}
-.hero{position:relative;height:520px;background:#0d1b2a;display:flex;align-items:flex-end;overflow:hidden;}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(to right,#0d1b2a 38%,rgba(13,27,42,0.35) 100%);z-index:1;}
-.hero-photo{position:absolute;right:0;top:0;bottom:0;width:62%;object-fit:cover;object-position:top center;}
-.hero-content{position:relative;z-index:2;padding:0 2.5rem 3.5rem;color:white;max-width:520px;}
-.hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:10px;}
-.hero-heading{display:flex;align-items:center;gap:18px;margin-bottom:1rem;}
-.hero-heading h1{font-size:56px;font-weight:500;line-height:1.0;letter-spacing:-1px;}
-.hero-heading h1 strong{color:#4fa3d1;font-weight:500;}
-.hero-escudo{width:88px;height:88px;object-fit:contain;flex-shrink:0;}
-.hero-content p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:2rem;}
-.hero-btns{display:flex;gap:10px;}
-.btn-s{background:#4fa3d1;color:white;border:none;padding:11px 26px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;}
-.btn-o{background:transparent;color:white;border:1px solid rgba(255,255,255,0.25);padding:11px 26px;border-radius:6px;font-size:14px;cursor:pointer;}
-.inicio-bottom{padding:3.5rem 3rem;}
-.sec-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:5px;}
-.sec-title{font-size:28px;font-weight:500;letter-spacing:-0.5px;margin-bottom:1.5rem;}
-.ig-feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
-.ig-follow-btn{display:inline-flex;align-items:center;gap:7px;background:#0d1b2a;color:white;border:none;padding:9px 18px;border-radius:6px;font-size:13px;cursor:pointer;text-decoration:none;}
-.noticias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.noticia{border:1px solid #e8eaed;border-radius:10px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;}
-.noticia:hover{border-color:#4fa3d1;}
-.noticia-img{height:200px;background:#0d1b2a;overflow:hidden;}
-.noticia-img img{width:100%;height:100%;object-fit:cover;}
-.noticia-body{padding:1rem;}
-.noticia-tipo{font-size:11px;color:#4fa3d1;text-transform:uppercase;letter-spacing:1px;font-weight:500;}
-.noticia-titulo{font-size:15px;font-weight:500;margin-top:4px;line-height:1.4;color:#0d1b2a;}
-.page-inner{padding:3rem;}
-.pos-section{margin-bottom:2.5rem;}
-.pos-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
-.plantel-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;}
-.jugador{border:1px solid #e8eaed;border-radius:10px;overflow:hidden;}
-.jugador:hover{border-color:#4fa3d1;}
-.jugador-foto{background:#0d1b2a;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.jugador-foto img{width:65%;height:65%;object-fit:contain;opacity:0.65;}
-.jnum{position:absolute;top:7px;right:7px;background:#4fa3d1;color:white;font-size:10px;font-weight:500;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.jcap{position:absolute;top:7px;left:7px;background:#f59e0b;color:white;font-size:9px;font-weight:500;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
-.jugador-info{padding:.75rem;}
-.jugador-nombre{font-size:13px;font-weight:500;line-height:1.3;}
-.jugador-apodo{font-size:11px;color:#4fa3d1;margin-top:1px;}
-.jugador-pos{font-size:11px;color:#8892a0;margin-top:2px;}
-.fixture-inner{padding:3rem;}
-.fixture-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2.5rem;}
-.fstat{background:#f8f9fb;border-radius:10px;padding:1.2rem;text-align:center;border:1px solid #e8eaed;}
-.fstat-num{font-size:28px;font-weight:500;color:#4fa3d1;}
-.fstat-lbl{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8892a0;margin-top:3px;}
-.partido{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 0;border-bottom:1px solid #e8eaed;}
-.partido:last-child{border-bottom:none;}
-.partido-fecha{font-size:12px;color:#8892a0;width:65px;}
-.partido-equipos{flex:1;font-size:15px;font-weight:500;display:flex;align-items:center;gap:12px;padding:0 1rem;}
-.vs-txt{font-size:12px;color:#8892a0;font-weight:400;}
-.partido-score{font-size:20px;font-weight:500;color:#0d1b2a;min-width:80px;text-align:center;letter-spacing:1px;}
-.badge{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;min-width:70px;text-align:center;}
-.badge-w{background:#e8f5e9;color:#2e7d32;}
-.badge-l{background:#fce8e8;color:#b71c1c;}
-.badge-e{background:#fff8e1;color:#f57f17;}
-.badge-next{background:#e3f2fd;color:#1565c0;}
-.galeria-inner{padding:3rem;}
-.fecha-section{margin-bottom:3rem;}
-.fecha-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
-.fecha-titulo{font-size:16px;font-weight:500;}
-.fecha-sub{font-size:12px;color:#8892a0;}
-.foto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.foto-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#f0f2f5;}
-.foto-item img{width:100%;height:100%;object-fit:cover;display:block;}
-.tienda-inner{padding:3rem;}
-.tienda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem;}
-.producto{border:1px solid #e8eaed;border-radius:12px;overflow:hidden;}
-.producto:hover{border-color:#4fa3d1;}
-.producto-img{background:#f8f9fb;aspect-ratio:1;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.producto-img img{width:100%;height:100%;object-fit:cover;}
-.producto-body{padding:1.25rem;}
-.producto-nombre{font-size:15px;font-weight:500;}
-.producto-desc{font-size:13px;color:#8892a0;margin:4px 0 14px;}
-.producto-footer{display:flex;align-items:center;justify-content:space-between;}
-.precio{font-size:18px;font-weight:500;color:#4fa3d1;}
-.btn-wsp{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:white;border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;text-decoration:none;font-weight:500;}
-footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;}
-.footer-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.footer-logo img{width:32px;}
-.footer-logo span{color:white;font-size:15px;font-weight:500;}
-.footer-center{text-align:center;font-size:12px;line-height:1.8;}
-.founded{color:rgba(255,255,255,0.55);font-size:11px;text-transform:uppercase;letter-spacing:1px;}
-.ig-btn{display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,0.15);padding:8px 18px;border-radius:6px;color:white;font-size:13px;text-decoration:none;}
-.ig-btn:hover{border-color:#4fa3d1;}
+.page-title{font-size:22px;font-weight:500;color:#0d1b2a;margin-bottom:1.5rem;}
+.card{background:white;border-radius:12px;border:1px solid #e8eaed;margin-bottom:1.5rem;overflow:hidden;}
+.card-header{padding:1rem 1.5rem;border-bottom:1px solid #e8eaed;display:flex;align-items:center;justify-content:space-between;}
+.card-title{font-size:15px;font-weight:500;}
+.btn-save{background:#2e7d32;color:white;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;}
+.btn-save:disabled{background:#ccc;cursor:not-allowed;}
+.btn-add{background:#0d1b2a;color:white;border:none;padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;}
+.btn-del{color:#e53935;background:none;border:none;cursor:pointer;font-size:18px;padding:0 4px;}
+.btn-primary{background:#4fa3d1;color:white;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;}
+.fixture-header-row{display:grid;grid-template-columns:90px 1fr 55px 55px 110px 36px;gap:8px;padding:.5rem 1.5rem;background:#f8f9fb;border-bottom:1px solid #e8eaed;}
+.fixture-header-row span{font-size:11px;color:#8892a0;font-weight:500;}
+.partido-row{display:grid;grid-template-columns:90px 1fr 55px 55px 110px 36px;gap:8px;align-items:center;padding:.6rem 1.5rem;border-bottom:1px solid #f5f5f5;}
+.fin{border:1px solid #e8eaed;border-radius:6px;padding:6px 8px;font-size:13px;width:100%;}
+select.fin{background:white;}
+.noticia-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid #f5f5f5;}
+.noticia-item:last-child{border-bottom:none;}
+.noticia-thumb{width:56px;height:56px;border-radius:8px;overflow:hidden;flex-shrink:0;background:#f0f2f5;}
+.noticia-thumb img{width:100%;height:100%;object-fit:cover;}
+.noticia-info{flex:1;}
+.noticia-titulo{font-size:13px;font-weight:500;}
+.noticia-meta{font-size:11px;color:#8892a0;margin-top:2px;}
+.form-body{padding:1.5rem;}
+.form-group{margin-bottom:1.2rem;}
+.form-label{font-size:12px;color:#555;margin-bottom:5px;display:block;font-weight:500;}
+.form-input{width:100%;border:1px solid #e8eaed;border-radius:8px;padding:9px 12px;font-size:13px;}
+.upload-area{border:2px dashed #e8eaed;border-radius:8px;padding:1.5rem;text-align:center;color:#8892a0;font-size:13px;cursor:pointer;position:relative;}
+.upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upload-preview{width:100%;max-height:200px;object-fit:cover;border-radius:8px;margin-top:.8rem;display:none;}
+.fecha-item{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid #f5f5f5;}
+.fecha-item:last-child{border-bottom:none;}
+.fecha-info{font-size:13px;font-weight:500;}
+.fecha-sub{font-size:11px;color:#8892a0;margin-top:2px;}
+.fecha-count{font-size:12px;color:#4fa3d1;}
+.producto-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid #f5f5f5;}
+.producto-item:last-child{border-bottom:none;}
+.producto-thumb{width:50px;height:50px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+.producto-thumb img{width:100%;height:100%;object-fit:cover;}
+.precio-input{border:1px solid #e8eaed;border-radius:6px;padding:6px 10px;font-size:13px;width:110px;}
+.toast{position:fixed;bottom:2rem;right:2rem;background:#2e7d32;color:white;padding:12px 20px;border-radius:8px;font-size:13px;font-weight:500;display:none;z-index:100;max-width:300px;}
+.toast.error{background:#c62828;}
+.toast.visible{display:block;}
+.loading{text-align:center;padding:2rem;color:#8892a0;font-size:13px;}
 </style>
 </head>
 <body>
 
-<div class="topbar">Apertura 2026 · <span>CATAS FC</span> · Fundado en 2025</div>
-<nav>
-  <div class="nav-logo" onclick="showPage('inicio')">
-    <img src="escudo.jpeg"/>
-    <span>CATAS FC</span>
-  </div>
-  <div class="nav-links">
-    <a onclick="showPage('inicio')" id="tab-inicio" class="active">Inicio</a>
-    <a onclick="showPage('plantel')" id="tab-plantel">Plantel</a>
-    <a onclick="showPage('fixture')" id="tab-fixture">Fixture</a>
-    <a onclick="showPage('galeria')" id="tab-galeria">Galería</a>
-    <a onclick="showPage('tienda')" id="tab-tienda">Tienda</a>
-  </div>
-</nav>
-
-<!-- INICIO -->
-<div class="page active" id="page-inicio">
-  <div class="hero">
-    <div class="hero-ov"></div>
-    <img class="hero-photo" src="hero.jpeg"/>
-    <div class="hero-content">
-      <div class="hero-tag">Apertura 2026</div>
-      <div class="hero-heading">
-        <h1>Somos<br><strong>CATAS FC</strong></h1>
-        <img class="hero-escudo" src="escudo.jpeg"/>
-      </div>
-      <p>Unidos dentro y fuera de la cancha. Fundados en 2025.</p>
-      <div class="hero-btns">
-        <button class="btn-s" onclick="showPage('plantel')">Ver plantel</button>
-        <button class="btn-o" onclick="showPage('fixture')">Fixture 2026</button>
-      </div>
-    </div>
-  </div>
-  <div class="inicio-bottom">
-    <div class="ig-feed-header">
-      <div>
-        <div class="sec-tag">Instagram</div>
-        <div class="sec-title">Últimas noticias</div>
-      </div>
-      <a class="ig-follow-btn" href="https://www.instagram.com/catasfc_" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-        Seguir @catasfc_
-      </a>
-    </div>
-    <div class="noticias-grid" id="noticias-container">
-      <div style="color:#8892a0;font-size:13px;">Cargando noticias...</div>
-    </div>
+<div class="login-screen" id="login-screen">
+  <div class="login-box">
+    <div class="login-logo"><img src="../escudo.jpeg" onerror="this.style.display='none'"/></div>
+    <div class="login-title">CATAS FC</div>
+    <div class="login-sub">Panel de administración</div>
+    <input class="login-input" type="password" id="pwd-input" placeholder="Contraseña" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button class="login-btn" onclick="doLogin()">Entrar</button>
+    <div class="login-error" id="login-error">Contraseña incorrecta</div>
   </div>
 </div>
 
-<!-- PLANTEL -->
-<div class="page" id="page-plantel">
-  <div class="page-inner">
-    <div class="sec-tag">Apertura 2026</div>
-    <div class="sec-title">El plantel</div>
-    <div class="pos-section">
-      <div class="pos-label">Arqueros</div>
-      <div class="plantel-grid">
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">1</div><div class="jcap">C</div></div><div class="jugador-info"><div class="jugador-nombre">Eduardo Marzoratti</div><div class="jugador-apodo">"Chapo"</div><div class="jugador-pos">Arquero</div></div></div>
+<div class="admin" id="admin-panel">
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div>CATAS FC</div>
+      <span>Admin</span>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-item active" onclick="showPage('fixture',this)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Resultados
+      </div>
+      <div class="nav-item" onclick="showPage('noticias',this)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M9 9h6M9 13h6"/></svg>
+        Noticias
+      </div>
+      <div class="nav-item" onclick="showPage('galeria',this)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Galería
+      </div>
+      <div class="nav-item" onclick="showPage('tienda',this)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        Tienda
       </div>
     </div>
-    <div class="pos-section">
-      <div class="pos-label">Defensores</div>
-      <div class="plantel-grid">
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">3</div></div><div class="jugador-info"><div class="jugador-nombre">Benja Aciar</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">9</div></div><div class="jugador-info"><div class="jugador-nombre">Alfredo Córdoba</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">4</div></div><div class="jugador-info"><div class="jugador-nombre">Tomás Factor</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">5</div></div><div class="jugador-info"><div class="jugador-nombre">Lautaro Panatti</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">2</div></div><div class="jugador-info"><div class="jugador-nombre">Dan Musicante</div><div class="jugador-apodo">"Ñato"</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">6</div></div><div class="jugador-info"><div class="jugador-nombre">Donato Chazarreta</div><div class="jugador-apodo">"Flako"</div><div class="jugador-pos">Defensor</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">12</div></div><div class="jugador-info"><div class="jugador-nombre">Tomás Rachid</div><div class="jugador-pos">Defensor</div></div></div>
-      </div>
-    </div>
-    <div class="pos-section">
-      <div class="pos-label">Mediocampistas</div>
-      <div class="plantel-grid">
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">7</div></div><div class="jugador-info"><div class="jugador-nombre">Martín Córdoba</div><div class="jugador-apodo">"Kun"</div><div class="jugador-pos">Mediocampista</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">10</div></div><div class="jugador-info"><div class="jugador-nombre">Máximo Wendenbourg</div><div class="jugador-apodo">"Primo Kyle"</div><div class="jugador-pos">Mediocampista</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">21</div></div><div class="jugador-info"><div class="jugador-nombre">Lisandro Vargas</div><div class="jugador-apodo">"Chichi"</div><div class="jugador-pos">Mediocampista</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">69</div></div><div class="jugador-info"><div class="jugador-nombre">Mariano Biancardi</div><div class="jugador-apodo">"Nano"</div><div class="jugador-pos">Mediocampista</div></div></div>
-      </div>
-    </div>
-    <div class="pos-section">
-      <div class="pos-label">Delanteros</div>
-      <div class="plantel-grid">
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">99</div></div><div class="jugador-info"><div class="jugador-nombre">Simón Factor</div><div class="jugador-pos">Delantero</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">18</div></div><div class="jugador-info"><div class="jugador-nombre">Gonzalo Rojas</div><div class="jugador-apodo">"Abuelo"</div><div class="jugador-pos">Delantero</div></div></div>
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum" style="font-size:8px;">Nine</div></div><div class="jugador-info"><div class="jugador-nombre">Ramiro Maza</div><div class="jugador-apodo">"Jumario"</div><div class="jugador-pos">Delantero</div></div></div>
-      </div>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">Cerrar sesión</button>
     </div>
   </div>
-</div>
 
-<!-- FIXTURE -->
-<div class="page" id="page-fixture">
-  <div class="fixture-inner">
-    <div class="sec-tag">Apertura 2026</div>
-    <div class="sec-title">Fixture</div>
-    <div class="fixture-stats">
-      <div class="fstat"><div class="fstat-num" id="stat-total">—</div><div class="fstat-lbl">Partidos</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#2e7d32;" id="stat-v">—</div><div class="fstat-lbl">Victorias</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#f57f17;" id="stat-e">—</div><div class="fstat-lbl">Empates</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#b71c1c;" id="stat-d">—</div><div class="fstat-lbl">Derrotas</div></div>
-    </div>
-    <div id="fixture-container"></div>
-  </div>
-</div>
-
-<!-- GALERÍA -->
-<div class="page" id="page-galeria">
-  <div class="galeria-inner">
-    <div class="sec-tag">Temporada 2026</div>
-    <div class="sec-title">Galería</div>
-    <div id="galeria-container"></div>
-  </div>
-</div>
-
-<!-- TIENDA -->
-<div class="page" id="page-tienda">
-  <div class="tienda-inner">
-    <div class="sec-tag">Indumentaria oficial</div>
-    <div class="sec-title">Tienda</div>
-    <div class="tienda-grid" id="tienda-container"></div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-logo" onclick="showPage('inicio')">
-    <img src="escudo.jpeg"/>
-    <span>CATAS FC</span>
-  </div>
-  <div class="footer-center">
-    <div class="founded">Fundado en 2025</div>
-    <div>© 2026 CATAS FC · Apertura 2026</div>
-  </div>
-  <a class="ig-btn" href="https://www.instagram.com/catasfc_" target="_blank">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-    @catasfc_
-  </a>
-</footer>
-
-<script>
-function showPage(n){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('page-'+n).classList.add('active');
-  document.getElementById('tab-'+n).classList.add('active');
-  window.scrollTo(0,0);
-}
-
-const WSP = 'https://wa.me/543834598151';
-const WSP_MSG = {
-  titular: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20titular%20de%20CATAS%20FC',
-  alternativa: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20alternativa%20de%20CATAS%20FC',
-  short: '?text=Hola!%20Quiero%20consultar%20por%20el%20short%20oficial%20de%20CATAS%20FC'
-};
-
-const wspIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>`;
-
-async function loadData() {
-  try {
-    // Fixture
-    const fRes = await fetch('content/resultados/fixture.json');
-    const fData = await fRes.json();
-    renderFixture(fData.partidos);
-
-    // Galería
-    const gRes = await fetch('content/galeria/fotos.json');
-    const gData = await gRes.json();
-    renderGaleria(gData.fechas);
-
-    // Tienda
-    const tRes = await fetch('content/tienda/productos.json');
-    const tData = await tRes.json();
-    renderTienda(tData.productos);
-
-    // Noticias
-    const nRes = await fetch('content/noticias/index.json').catch(()=>null);
-    if(nRes && nRes.ok){
-      const nData = await nRes.json();
-      renderNoticias(nData.noticias || []);
-    } else {
-      renderNoticias([]);
-    }
-  } catch(e) {
-    console.error('Error cargando datos:', e);
-  }
-}
-
-function renderFixture(partidos) {
-  const v = partidos.filter(p=>p.resultado==='Victoria').length;
-  const e = partidos.filter(p=>p.resultado==='Empate').length;
-  const d = partidos.filter(p=>p.resultado==='Derrota').length;
-  document.getElementById('stat-total').textContent = partidos.length;
-  document.getElementById('stat-v').textContent = v;
-  document.getElementById('stat-e').textContent = e;
-  document.getElementById('stat-d').textContent = d;
-
-  const badges = {Victoria:'badge-w',Derrota:'badge-l',Empate:'badge-e',Próximo:'badge-next'};
-  const html = partidos.map(p => `
-    <div class="partido">
-      <div class="partido-fecha">${p.fecha}</div>
-      <div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> ${p.rival}</div>
-      <div class="partido-score">${p.goles_catas} — ${p.goles_rival}</div>
-      <span class="badge ${badges[p.resultado]||'badge-next'}">${p.resultado}</span>
-    </div>`).join('');
-  document.getElementById('fixture-container').innerHTML = html;
-}
-
-function renderGaleria(fechas) {
-  const html = fechas.map(f => `
-    <div class="fecha-section">
-      <div class="fecha-header">
-        <div class="fecha-titulo">${f.titulo}</div>
-        <div class="fecha-sub">${f.subtitulo}</div>
-      </div>
-      <div class="foto-grid">
-        ${f.fotos.map(foto=>`<div class="foto-item"><img src="${foto}" loading="lazy"/></div>`).join('')}
-      </div>
-    </div>`).join('');
-  document.getElementById('galeria-container').innerHTML = html;
-}
-
-function renderTienda(productos) {
-  const msgs = ['titular','alternativa','short'];
-  const html = productos.map((p,i) => `
-    <div class="producto">
-      <div class="producto-img"><img src="${p.imagen}"/></div>
-      <div class="producto-body">
-        <div class="producto-nombre">${p.nombre}</div>
-        <div class="producto-desc">${p.descripcion}</div>
-        <div class="producto-footer">
-          <div class="precio">${p.precio}</div>
-          <a class="btn-wsp" href="${WSP}${WSP_MSG[msgs[i]]||''}" target="_blank">${wspIcon} Consultar</a>
+  <div class="main">
+    <div class="page active" id="page-fixture">
+      <div class="page-title">Resultados</div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Fixture Apertura 2026</div>
+          <button class="btn-save" id="btn-save-fixture" onclick="saveFixture()">Guardar cambios</button>
+        </div>
+        <div class="fixture-header-row">
+          <span>Fecha</span><span>Rival</span><span>CATAS</span><span>Rival</span><span>Resultado</span><span></span>
+        </div>
+        <div id="fixture-rows"><div class="loading">Cargando...</div></div>
+        <div style="padding:1rem 1.5rem;">
+          <button class="btn-add" onclick="addPartido()">+ Agregar fecha</button>
         </div>
       </div>
-    </div>`).join('');
-  document.getElementById('tienda-container').innerHTML = html;
-}
+    </div>
 
-function renderNoticias(noticias) {
-  const container = document.getElementById('noticias-container');
-  if(!noticias.length){
-    container.innerHTML = `
-      <div style="grid-column:span 3;text-align:center;padding:3rem;color:#8892a0;font-size:14px;">
-        Las noticias aparecerán acá cuando las publiques desde el panel admin.
-        <br><br>
-        <a href="https://www.instagram.com/catasfc_" target="_blank" style="color:#4fa3d1;text-decoration:none;font-weight:500;">Ver @catasfc_ en Instagram →</a>
-      </div>`;
-    return;
-  }
-  const html = noticias.map(n => `
-    <a class="noticia" href="${n.link}" target="_blank">
-      <div class="noticia-img"><img src="${n.imagen}"/></div>
-      <div class="noticia-body">
-        <div class="noticia-tipo">Instagram</div>
-        <div class="noticia-titulo">${n.title}</div>
+    <div class="page" id="page-noticias">
+      <div class="page-title">Noticias</div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">Publicaciones actuales</div></div>
+        <div id="noticias-items"><div class="loading">Cargando...</div></div>
       </div>
-    </a>`).join('');
-  container.innerHTML = html;
+      <div class="card">
+        <div class="card-header"><div class="card-title">Nueva noticia</div></div>
+        <div class="form-body">
+          <div class="form-group">
+            <label class="form-label">Título</label>
+            <input class="form-input" id="noticia-titulo" placeholder="Ej: Victoria ante Desconocidos 3-1"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Link de Instagram</label>
+            <input class="form-input" id="noticia-link" placeholder="https://www.instagram.com/p/..."/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Foto</label>
+            <div class="upload-area">
+              <input type="file" accept="image/*" id="noticia-foto" onchange="previewImage(this,'noticia-preview')"/>
+              Tocá para subir una foto
+              <img id="noticia-preview" class="upload-preview"/>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="saveNoticia()">Publicar noticia</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-galeria">
+      <div class="page-title">Galería</div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">Fechas actuales</div></div>
+        <div id="galeria-items"><div class="loading">Cargando...</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">Agregar nueva fecha</div></div>
+        <div class="form-body">
+          <div class="form-group">
+            <label class="form-label">Título</label>
+            <input class="form-input" id="galeria-titulo" placeholder="Ej: Fecha 4 — vs Desconocidos"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Resultado</label>
+            <input class="form-input" id="galeria-resultado" placeholder="Ej: 3 — 1"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Fotos (podés seleccionar varias)</label>
+            <div class="upload-area">
+              <input type="file" accept="image/*" multiple id="galeria-fotos" onchange="showGaleriaCount(this)"/>
+              Tocá para seleccionar fotos
+              <div id="galeria-count" style="margin-top:.5rem;font-size:12px;color:#4fa3d1;"></div>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="saveGaleria()">Subir fotos</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-tienda">
+      <div class="page-title">Tienda</div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Productos</div>
+          <button class="btn-save" onclick="saveTienda()">Guardar precios</button>
+        </div>
+        <div id="tienda-items"><div class="loading">Cargando...</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const TOKEN='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';
+const REPO='simfactor06/CATAS-FC-ADMIN';
+const BRANCH='main';
+const API='https://api.github.com';
+const PWD='catas2026';
+let fixtureData=null,galeriaData=null,tiendaData=null,noticiasData=[];
+
+function doLogin(){
+  if(document.getElementById('pwd-input').value===PWD){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('admin-panel').classList.add('visible');
+    loadAll();
+  } else {
+    document.getElementById('login-error').style.display='block';
+  }
 }
 
-loadData();
+function logout(){
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('admin-panel').classList.remove('visible');
+  document.getElementById('pwd-input').value='';
+}
+
+function showPage(name,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  el.classList.add('active');
+}
+
+function showToast(msg,isError=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast visible'+(isError?' error':'');
+  setTimeout(()=>t.className='toast',4000);
+}
+
+async function ghGet(path){
+  const r=await fetch(`${API}/repos/${REPO}/contents/${path}?ref=${BRANCH}&t=${Date.now()}`,{
+    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json'}
+  });
+  return r.json();
+}
+
+async function ghPut(path,content,message,sha){
+  const body={message,content:btoa(unescape(encodeURIComponent(content))),branch:BRANCH};
+  if(sha)body.sha=sha;
+  const r=await fetch(`${API}/repos/${REPO}/contents/${path}`,{
+    method:'PUT',
+    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+  return r.json();
+}
+
+async function ghPutBinary(path,base64,message,sha){
+  const body={message,content:base64,branch:BRANCH};
+  if(sha)body.sha=sha;
+  const r=await fetch(`${API}/repos/${REPO}/contents/${path}`,{
+    method:'PUT',
+    headers:{Authorization:`token ${TOKEN}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},
+    body:JSON.stringify(body)
+  });
+  return r.json();
+}
+
+async function loadAll(){loadFixture();loadNoticias();loadGaleria();loadTienda();}
+
+async function loadFixture(){
+  try{
+    const f=await ghGet('content/resultados/fixture.json');
+    const data=JSON.parse(atob(f.content));
+    fixtureData={data,sha:f.sha};
+    renderFixture(data.partidos);
+  }catch(e){document.getElementById('fixture-rows').innerHTML='<div class="loading">Error cargando</div>';}
+}
+
+function renderFixture(partidos){
+  const opts=['Victoria','Derrota','Empate','Próximo'];
+  document.getElementById('fixture-rows').innerHTML=partidos.map((p,i)=>`
+    <div class="partido-row">
+      <input class="fin" value="${p.fecha}" data-i="${i}" data-f="fecha"/>
+      <input class="fin" value="${p.rival}" data-i="${i}" data-f="rival"/>
+      <input class="fin" value="${p.goles_catas}" data-i="${i}" data-f="goles_catas" style="text-align:center"/>
+      <input class="fin" value="${p.goles_rival}" data-i="${i}" data-f="goles_rival" style="text-align:center"/>
+      <select class="fin" data-i="${i}" data-f="resultado">${opts.map(o=>`<option ${o===p.resultado?'selected':''}>${o}</option>`).join('')}</select>
+      <button class="btn-del" onclick="delPartido(${i})">×</button>
+    </div>`).join('');
+}
+
+function addPartido(){
+  if(!fixtureData)return;
+  fixtureData.data.partidos.push({fecha:`Fecha ${fixtureData.data.partidos.length+1}`,rival:'',goles_catas:'—',goles_rival:'—',resultado:'Próximo'});
+  renderFixture(fixtureData.data.partidos);
+}
+
+function delPartido(i){
+  if(!fixtureData)return;
+  fixtureData.data.partidos.splice(i,1);
+  renderFixture(fixtureData.data.partidos);
+}
+
+async function saveFixture(){
+  if(!fixtureData)return;
+  const partidos=Array.from(document.querySelectorAll('.partido-row')).map(row=>{
+    const p={};
+    row.querySelectorAll('[data-f]').forEach(inp=>p[inp.dataset.f]=inp.value);
+    return p;
+  });
+  fixtureData.data.partidos=partidos;
+  const btn=document.getElementById('btn-save-fixture');
+  btn.disabled=true;btn.textContent='Guardando...';
+  try{
+    await ghPut('content/resultados/fixture.json',JSON.stringify(fixtureData.data,null,2),'Actualizar fixture',fixtureData.sha);
+    const f=await ghGet('content/resultados/fixture.json');
+    fixtureData.sha=f.sha;
+    showToast('✅ Resultados actualizados! La página se actualiza en 2 minutos.');
+  }catch(e){showToast('Error al guardar',true);}
+  btn.disabled=false;btn.textContent='Guardar cambios';
+}
+
+async function loadNoticias(){
+  try{
+    const files=await ghGet('content/noticias');
+    if(!Array.isArray(files)){renderNoticias([]);return;}
+    const jsonFiles=files.filter(f=>f.name.endsWith('.json'));
+    const noticias=await Promise.all(jsonFiles.map(async f=>{
+      const data=await ghGet(`content/noticias/${f.name}`);
+      return{...JSON.parse(atob(data.content)),sha:data.sha,filename:f.name};
+    }));
+    noticiasData=noticias.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));
+    renderNoticias(noticiasData);
+  }catch(e){renderNoticias([]);}
+}
+
+function renderNoticias(noticias){
+  if(!noticias.length){document.getElementById('noticias-items').innerHTML='<div class="loading">No hay noticias todavía</div>';return;}
+  document.getElementById('noticias-items').innerHTML=noticias.map((n,i)=>`
+    <div class="noticia-item">
+      <div class="noticia-thumb"><img src="${n.imagen}" onerror="this.style.display='none'"/></div>
+      <div class="noticia-info">
+        <div class="noticia-titulo">${n.title}</div>
+        <div class="noticia-meta">${new Date(n.fecha).toLocaleDateString('es-AR')} · <a href="${n.link}" target="_blank" style="color:#4fa3d1;">Ver en Instagram</a></div>
+      </div>
+      <button class="btn-del" onclick="delNoticia(${i})">×</button>
+    </div>`).join('');
+}
+
+async function delNoticia(i){
+  if(!confirm('¿Borrar esta noticia?'))return;
+  const n=noticiasData[i];
+  await fetch(`${API}/repos/${REPO}/contents/content/noticias/${n.filename}`,{
+    method:'DELETE',
+    headers:{Authorization:`token ${TOKEN}`,'Content-Type':'application/json'},
+    body:JSON.stringify({message:'Borrar noticia',sha:n.sha,branch:BRANCH})
+  });
+  showToast('✅ Noticia eliminada');
+  loadNoticias();
+}
+
+function previewImage(input,previewId){
+  const preview=document.getElementById(previewId);
+  if(input.files&&input.files[0]){
+    const reader=new FileReader();
+    reader.onload=e=>{preview.src=e.target.result;preview.style.display='block';};
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+async function saveNoticia(){
+  const titulo=document.getElementById('noticia-titulo').value.trim();
+  const link=document.getElementById('noticia-link').value.trim();
+  const fotoInput=document.getElementById('noticia-foto');
+  if(!titulo||!link||!fotoInput.files.length){showToast('Completá todos los campos',true);return;}
+  showToast('Subiendo noticia...');
+  const file=fotoInput.files[0];
+  const base64=await fileToBase64(file);
+  const filename=`foto_${Date.now()}.jpg`;
+  const imgPath=`fotos/noticias/${filename}`;
+  await ghPutBinary(imgPath,base64,'Subir foto noticia',null);
+  const slug=titulo.toLowerCase().replace(/[^a-z0-9]/g,'-').substring(0,30);
+  await ghPut(`content/noticias/${slug}-${Date.now()}.json`,JSON.stringify({title:titulo,imagen:imgPath,link,fecha:new Date().toISOString()},null,2),'Nueva noticia',null);
+  showToast('✅ Noticia publicada! Aparece en 2 minutos.');
+  document.getElementById('noticia-titulo').value='';
+  document.getElementById('noticia-link').value='';
+  fotoInput.value='';
+  document.getElementById('noticia-preview').style.display='none';
+  loadNoticias();
+}
+
+async function loadGaleria(){
+  try{
+    const f=await ghGet('content/galeria/fotos.json');
+    galeriaData={data:JSON.parse(atob(f.content)),sha:f.sha};
+    renderGaleria(galeriaData.data.fechas);
+  }catch(e){document.getElementById('galeria-items').innerHTML='<div class="loading">Error cargando</div>';}
+}
+
+function renderGaleria(fechas){
+  if(!fechas.length){document.getElementById('galeria-items').innerHTML='<div class="loading">No hay fechas todavía</div>';return;}
+  document.getElementById('galeria-items').innerHTML=fechas.map((f,i)=>`
+    <div class="fecha-item">
+      <div><div class="fecha-info">${f.titulo}</div><div class="fecha-sub">${f.subtitulo}</div></div>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <span class="fecha-count">${f.fotos.length} fotos</span>
+        <button class="btn-del" onclick="delFecha(${i})">×</button>
+      </div>
+    </div>`).join('');
+}
+
+function showGaleriaCount(input){
+  document.getElementById('galeria-count').textContent=input.files.length>0?`${input.files.length} foto(s) seleccionada(s)`:'';
+}
+
+async function delFecha(i){
+  if(!confirm('¿Borrar esta fecha de la galería?'))return;
+  galeriaData.data.fechas.splice(i,1);
+  await ghPut('content/galeria/fotos.json',JSON.stringify(galeriaData.data,null,2),'Borrar fecha galería',galeriaData.sha);
+  showToast('✅ Fecha eliminada');
+  loadGaleria();
+}
+
+async function saveGaleria(){
+  const titulo=document.getElementById('galeria-titulo').value.trim();
+  const resultado=document.getElementById('galeria-resultado').value.trim();
+  const fotosInput=document.getElementById('galeria-fotos');
+  if(!titulo||!fotosInput.files.length){showToast('Completá título y seleccioná fotos',true);return;}
+  showToast(`Subiendo ${fotosInput.files.length} fotos... esperá un momento`);
+  const fechaSlug=titulo.toLowerCase().replace(/[^a-z0-9]/g,'-').substring(0,20)+'-'+Date.now();
+  const fotoPaths=[];
+  for(let i=0;i<fotosInput.files.length;i++){
+    const base64=await fileToBase64(fotosInput.files[i]);
+    const path=`fotos/${fechaSlug}/foto_${i+1}.jpg`;
+    await ghPutBinary(path,base64,`Subir foto galería`,null);
+    fotoPaths.push(path);
+  }
+  const f=await ghGet('content/galeria/fotos.json');
+  galeriaData.sha=f.sha;
+  galeriaData.data=JSON.parse(atob(f.content));
+  galeriaData.data.fechas.push({titulo,subtitulo:resultado,fotos:fotoPaths});
+  await ghPut('content/galeria/fotos.json',JSON.stringify(galeriaData.data,null,2),'Agregar fecha galería',galeriaData.sha);
+  showToast(`✅ ${fotoPaths.length} fotos subidas! La galería se actualiza en 2 minutos.`);
+  document.getElementById('galeria-titulo').value='';
+  document.getElementById('galeria-resultado').value='';
+  fotosInput.value='';
+  document.getElementById('galeria-count').textContent='';
+  loadGaleria();
+}
+
+function fileToBase64(file){
+  return new Promise(resolve=>{
+    const reader=new FileReader();
+    reader.onload=e=>resolve(e.target.result.split(',')[1]);
+    reader.readAsDataURL(file);
+  });
+}
+
+async function loadTienda(){
+  try{
+    const f=await ghGet('content/tienda/productos.json');
+    tiendaData={data:JSON.parse(atob(f.content)),sha:f.sha};
+    renderTienda(tiendaData.data.productos);
+  }catch(e){document.getElementById('tienda-items').innerHTML='<div class="loading">Error cargando</div>';}
+}
+
+function renderTienda(productos){
+  document.getElementById('tienda-items').innerHTML=productos.map((p,i)=>`
+    <div class="producto-item">
+      <div class="producto-thumb"><img src="${p.imagen}" onerror="this.style.display='none'"/></div>
+      <div style="flex:1;font-size:13px;font-weight:500;">${p.nombre}<br><span style="font-size:11px;color:#8892a0;">${p.descripcion}</span></div>
+      <input class="precio-input" value="${p.precio}" data-i="${i}"/>
+    </div>`).join('');
+}
+
+async function saveTienda(){
+  document.querySelectorAll('.precio-input').forEach(inp=>tiendaData.data.productos[inp.dataset.i].precio=inp.value);
+  try{
+    await ghPut('content/tienda/productos.json',JSON.stringify(tiendaData.data,null,2),'Actualizar precios',tiendaData.sha);
+    const f=await ghGet('content/tienda/productos.json');
+    tiendaData.sha=f.sha;
+    showToast('✅ Precios actualizados!');
+  }catch(e){showToast('Error al guardar',true);}
+}
 </script>
 </body>
 </html>
