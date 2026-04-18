@@ -1,8 +1,8 @@
 {
   "fechas": [
     {
-      "titulo": "Fecha 1 Ã¢ÂÂ vs Resaca FC",
-      "subtitulo": "2 Ã¢ÂÂ 5",
+      "titulo": "Fecha 1 ÃÂ¢ÃÂÃÂ vs Resaca FC",
+      "subtitulo": "2 ÃÂ¢ÃÂÃÂ 5",
       "fotos": [
         "fotos/fecha1/f1_01.jpg",
         "fotos/fecha1/f1_02.jpg",
@@ -21,8 +21,8 @@
       ]
     },
     {
-      "titulo": "Fecha 2 Ã¢ÂÂ vs Banchester",
-      "subtitulo": "6 Ã¢ÂÂ 2",
+      "titulo": "Fecha 2 ÃÂ¢ÃÂÃÂ vs Banchester",
+      "subtitulo": "6 ÃÂ¢ÃÂÃÂ 2",
       "fotos": [
         "fotos/fecha2/f2_01.jpg",
         "fotos/fecha2/f2_02.jpg",
@@ -45,8 +45,8 @@
       ]
     },
     {
-      "titulo": "Fecha 3 Ã¢ÂÂ vs Paris San Fernet",
-      "subtitulo": "6 Ã¢ÂÂ 6",
+      "titulo": "Fecha 3 ÃÂ¢ÃÂÃÂ vs Paris San Fernet",
+      "subtitulo": "6 ÃÂ¢ÃÂÃÂ 6",
       "fotos": [
         "fotos/fecha3/f3_01.jpg",
         "fotos/fecha3/f3_02.jpg",
@@ -59,6 +59,22 @@
         "fotos/fecha3/f3_09.jpg",
         "fotos/fecha3/f3_10.jpg",
         "fotos/fecha3/f3_11.jpg"
+      ]
+    },
+    {
+      "titulo": "Fecha 4 -- vs Desconocidos",
+      "subtitulo": "1 -- 4",
+      "fotos": [
+        "fotos/fecha-4----vs-descon-1776533452578/foto_1.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_2.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_3.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_4.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_5.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_6.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_7.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_8.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_9.jpg",
+        "fotos/fecha-4----vs-descon-1776533452578/foto_10.jpg"
       ]
     }
   ]
