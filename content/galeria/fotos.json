@@ -1,8 +1,8 @@
 {
   "fechas": [
     {
-      "titulo": "Fecha 1 ÃÂ¢ÃÂÃÂ vs Resaca FC",
-      "subtitulo": "2 ÃÂ¢ÃÂÃÂ 5",
+      "titulo": "Fecha 1 -- vs Resaca FC",
+      "subtitulo": "2 -- 5",
       "fotos": [
         "fotos/fecha1/f1_01.jpg",
         "fotos/fecha1/f1_02.jpg",
@@ -21,8 +21,8 @@
       ]
     },
     {
-      "titulo": "Fecha 2 ÃÂ¢ÃÂÃÂ vs Banchester",
-      "subtitulo": "6 ÃÂ¢ÃÂÃÂ 2",
+      "titulo": "Fecha 2 -- vs Banchester",
+      "subtitulo": "6 -- 2",
       "fotos": [
         "fotos/fecha2/f2_01.jpg",
         "fotos/fecha2/f2_02.jpg",
@@ -45,8 +45,8 @@
       ]
     },
     {
-      "titulo": "Fecha 3 ÃÂ¢ÃÂÃÂ vs Paris San Fernet",
-      "subtitulo": "6 ÃÂ¢ÃÂÃÂ 6",
+      "titulo": "Fecha 3 -- vs Paris San Fernet",
+      "subtitulo": "6 -- 6",
       "fotos": [
         "fotos/fecha3/f3_01.jpg",
         "fotos/fecha3/f3_02.jpg",
