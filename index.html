@@ -19,7 +19,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .nav-links a:hover{color:#4fa3d1;}
 .page{display:none;}
 .page.active{display:block;}
-
 .hero{position:relative;height:520px;background:#0d1b2a;display:flex;align-items:flex-end;overflow:hidden;}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(to right,#0d1b2a 38%,rgba(13,27,42,0.35) 100%);z-index:1;}
 .hero-photo{position:absolute;right:0;top:0;bottom:0;width:62%;object-fit:cover;object-position:top center;}
@@ -33,20 +32,19 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .hero-btns{display:flex;gap:10px;}
 .btn-s{background:#4fa3d1;color:white;border:none;padding:11px 26px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;}
 .btn-o{background:transparent;color:white;border:1px solid rgba(255,255,255,0.25);padding:11px 26px;border-radius:6px;font-size:14px;cursor:pointer;}
-
 .inicio-bottom{padding:3.5rem 3rem;}
 .sec-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:5px;}
 .sec-title{font-size:28px;font-weight:500;letter-spacing:-0.5px;margin-bottom:1.5rem;}
 .ig-feed-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
 .ig-follow-btn{display:inline-flex;align-items:center;gap:7px;background:#0d1b2a;color:white;border:none;padding:9px 18px;border-radius:6px;font-size:13px;cursor:pointer;text-decoration:none;}
-.ig-feed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.ig-post{border-radius:10px;overflow:hidden;border:1px solid #e8eaed;aspect-ratio:1;background:#f0f2f5;display:flex;align-items:center;justify-content:center;}
-.ig-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:1rem;text-align:center;}
-.ig-placeholder-text{font-size:12px;color:#8892a0;line-height:1.5;}
-.ig-cta{margin-top:2rem;text-align:center;padding:2rem;background:#f8f9fb;border-radius:12px;border:1px solid #e8eaed;}
-.ig-cta p{font-size:14px;color:#8892a0;margin-bottom:1rem;}
-.ig-cta a{display:inline-flex;align-items:center;gap:8px;background:#0d1b2a;color:white;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;}
-
+.noticias-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.noticia{border:1px solid #e8eaed;border-radius:10px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;}
+.noticia:hover{border-color:#4fa3d1;}
+.noticia-img{height:200px;background:#0d1b2a;overflow:hidden;}
+.noticia-img img{width:100%;height:100%;object-fit:cover;}
+.noticia-body{padding:1rem;}
+.noticia-tipo{font-size:11px;color:#4fa3d1;text-transform:uppercase;letter-spacing:1px;font-weight:500;}
+.noticia-titulo{font-size:15px;font-weight:500;margin-top:4px;line-height:1.4;color:#0d1b2a;}
 .page-inner{padding:3rem;}
 .pos-section{margin-bottom:2.5rem;}
 .pos-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
@@ -56,13 +54,11 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .jugador-foto{background:#0d1b2a;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .jugador-foto img{width:65%;height:65%;object-fit:contain;opacity:0.65;}
 .jnum{position:absolute;top:7px;right:7px;background:#4fa3d1;color:white;font-size:10px;font-weight:500;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.jdash{position:absolute;top:7px;right:7px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.35);font-size:13px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .jcap{position:absolute;top:7px;left:7px;background:#f59e0b;color:white;font-size:9px;font-weight:500;padding:2px 6px;border-radius:4px;text-transform:uppercase;}
 .jugador-info{padding:.75rem;}
 .jugador-nombre{font-size:13px;font-weight:500;line-height:1.3;}
 .jugador-apodo{font-size:11px;color:#4fa3d1;margin-top:1px;}
 .jugador-pos{font-size:11px;color:#8892a0;margin-top:2px;}
-
 .fixture-inner{padding:3rem;}
 .fixture-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2.5rem;}
 .fstat{background:#f8f9fb;border-radius:10px;padding:1.2rem;text-align:center;border:1px solid #e8eaed;}
@@ -79,7 +75,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .badge-l{background:#fce8e8;color:#b71c1c;}
 .badge-e{background:#fff8e1;color:#f57f17;}
 .badge-next{background:#e3f2fd;color:#1565c0;}
-
 .galeria-inner{padding:3rem;}
 .fecha-section{margin-bottom:3rem;}
 .fecha-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #e8eaed;}
@@ -88,7 +83,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .foto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
 .foto-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#f0f2f5;}
 .foto-item img{width:100%;height:100%;object-fit:cover;display:block;}
-
 .tienda-inner{padding:3rem;}
 .tienda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem;}
 .producto{border:1px solid #e8eaed;border-radius:12px;overflow:hidden;}
@@ -101,7 +95,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .producto-footer{display:flex;align-items:center;justify-content:space-between;}
 .precio{font-size:18px;font-weight:500;color:#4fa3d1;}
 .btn-wsp{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:white;border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;text-decoration:none;font-weight:500;}
-
 footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;}
 .footer-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .footer-logo img{width:32px;}
@@ -115,7 +108,6 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 <body>
 
 <div class="topbar">Apertura 2026 · <span>CATAS FC</span> · Fundado en 2025</div>
-
 <nav>
   <div class="nav-logo" onclick="showPage('inicio')">
     <img src="escudo.jpeg"/>
@@ -152,27 +144,15 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
     <div class="ig-feed-header">
       <div>
         <div class="sec-tag">Instagram</div>
-        <div class="sec-title">Últimas publicaciones</div>
+        <div class="sec-title">Últimas noticias</div>
       </div>
       <a class="ig-follow-btn" href="https://www.instagram.com/catasfc_" target="_blank">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
         Seguir @catasfc_
       </a>
     </div>
-    <div class="ig-feed-grid">
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-      <div class="ig-post"><div class="ig-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8892a0" stroke-width="1.5" opacity="0.3"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#8892a0" stroke="none"/></svg><div class="ig-placeholder-text">Ver en @catasfc_</div></div></div>
-    </div>
-    <div class="ig-cta">
-      <p>Seguinos en Instagram para ver todas las novedades del equipo en tiempo real</p>
-      <a href="https://www.instagram.com/catasfc_" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
-        &nbsp;Ver todo en @catasfc_
-      </a>
+    <div class="noticias-grid" id="noticias-container">
+      <div style="color:#8892a0;font-size:13px;">Cargando noticias...</div>
     </div>
   </div>
 </div>
@@ -226,26 +206,12 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
     <div class="sec-tag">Apertura 2026</div>
     <div class="sec-title">Fixture</div>
     <div class="fixture-stats">
-      <div class="fstat"><div class="fstat-num">13</div><div class="fstat-lbl">Partidos</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#2e7d32;">1</div><div class="fstat-lbl">Victorias</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#f57f17;">1</div><div class="fstat-lbl">Empates</div></div>
-      <div class="fstat"><div class="fstat-num" style="color:#b71c1c;">1</div><div class="fstat-lbl">Derrotas</div></div>
+      <div class="fstat"><div class="fstat-num" id="stat-total">—</div><div class="fstat-lbl">Partidos</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#2e7d32;" id="stat-v">—</div><div class="fstat-lbl">Victorias</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#f57f17;" id="stat-e">—</div><div class="fstat-lbl">Empates</div></div>
+      <div class="fstat"><div class="fstat-num" style="color:#b71c1c;" id="stat-d">—</div><div class="fstat-lbl">Derrotas</div></div>
     </div>
-    <div>
-      <div class="partido"><div class="partido-fecha">Fecha 1</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Resaca FC</div><div class="partido-score">2 — 5</div><span class="badge badge-l">Derrota</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 2</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Banchester</div><div class="partido-score">6 — 2</div><span class="badge badge-w">Victoria</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 3</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Paris San Fernet</div><div class="partido-score">6 — 6</div><span class="badge badge-e">Empate</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 4</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Desconocidos</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 5</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Paris San Fernet B</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 6</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Potrero del Sur</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 7</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Sportivo</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 8</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Bidon</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 9</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> La Pampara FC</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 10</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> 9420</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 11</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Paris FC</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 12</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Zanganos</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-      <div class="partido"><div class="partido-fecha">Fecha 13</div><div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> Tallerismo</div><div class="partido-score">— — —</div><span class="badge badge-next">Próximo</span></div>
-    </div>
+    <div id="fixture-container"></div>
   </div>
 </div>
 
@@ -254,76 +220,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
   <div class="galeria-inner">
     <div class="sec-tag">Temporada 2026</div>
     <div class="sec-title">Galería</div>
-
-    <div class="fecha-section">
-      <div class="fecha-header">
-        <div class="fecha-titulo">Fecha 1 — vs Resaca FC</div>
-        <div class="fecha-sub">2 — 5</div>
-      </div>
-      <div class="foto-grid">
-        <div class="foto-item"><img src="fotos/fecha1/f1_01.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_02.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_03.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_04.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_05.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_06.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_07.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_08.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_09.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_10.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_11.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_12.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_13.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha1/f1_14.jpg"/></div>
-      </div>
-    </div>
-
-    <div class="fecha-section">
-      <div class="fecha-header">
-        <div class="fecha-titulo">Fecha 2 — vs Banchester</div>
-        <div class="fecha-sub">6 — 2</div>
-      </div>
-      <div class="foto-grid">
-        <div class="foto-item"><img src="fotos/fecha2/f2_01.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_02.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_03.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_04.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_05.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_06.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_07.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_08.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_09.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_10.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_11.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_12.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_13.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_14.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_15.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_16.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_17.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha2/f2_18.jpg"/></div>
-      </div>
-    </div>
-
-    <div class="fecha-section">
-      <div class="fecha-header">
-        <div class="fecha-titulo">Fecha 3 — vs Paris San Fernet</div>
-        <div class="fecha-sub">6 — 6</div>
-      </div>
-      <div class="foto-grid">
-        <div class="foto-item"><img src="fotos/fecha3/f3_01.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_02.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_03.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_04.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_05.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_06.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_07.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_08.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_09.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_10.jpg"/></div>
-        <div class="foto-item"><img src="fotos/fecha3/f3_11.jpg"/></div>
-      </div>
-    </div>
+    <div id="galeria-container"></div>
   </div>
 </div>
 
@@ -332,50 +229,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
   <div class="tienda-inner">
     <div class="sec-tag">Indumentaria oficial</div>
     <div class="sec-title">Tienda</div>
-    <div class="tienda-grid">
-      <div class="producto">
-        <div class="producto-img"><img src="camisetatitular.jpeg"/></div>
-        <div class="producto-body">
-          <div class="producto-nombre">Camiseta titular</div>
-          <div class="producto-desc">Azul marino · Apertura 2026</div>
-          <div class="producto-footer">
-            <div class="precio">$10.000</div>
-            <a class="btn-wsp" href="https://wa.me/543834598151?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20titular%20de%20CATAS%20FC" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="producto">
-        <div class="producto-img"><img src="camisetasuplente.jpeg" onerror="this.parentElement.style.background='#0d1b2a'"/></div>
-        <div class="producto-body">
-          <div class="producto-nombre">Camiseta alternativa</div>
-          <div class="producto-desc">Blanca · Apertura 2026</div>
-          <div class="producto-footer">
-            <div class="precio">$10.000</div>
-            <a class="btn-wsp" href="https://wa.me/543834598151?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20alternativa%20de%20CATAS%20FC" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="producto">
-        <div class="producto-img"><img src="short.jpeg" onerror="this.parentElement.style.background='#0d1b2a'"/></div>
-        <div class="producto-body">
-          <div class="producto-nombre">Short oficial</div>
-          <div class="producto-desc">Azul marino · Apertura 2026</div>
-          <div class="producto-footer">
-            <div class="precio">$5.000</div>
-            <a class="btn-wsp" href="https://wa.me/543834598151?text=Hola!%20Quiero%20consultar%20por%20el%20short%20oficial%20de%20CATAS%20FC" target="_blank">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>
-              Consultar
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="tienda-grid" id="tienda-container"></div>
   </div>
 </div>
 
@@ -402,6 +256,120 @@ function showPage(n){
   document.getElementById('tab-'+n).classList.add('active');
   window.scrollTo(0,0);
 }
+
+const WSP = 'https://wa.me/543834598151';
+const WSP_MSG = {
+  titular: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20titular%20de%20CATAS%20FC',
+  alternativa: '?text=Hola!%20Quiero%20consultar%20por%20la%20camiseta%20alternativa%20de%20CATAS%20FC',
+  short: '?text=Hola!%20Quiero%20consultar%20por%20el%20short%20oficial%20de%20CATAS%20FC'
+};
+
+const wspIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.524 5.84L0 24l6.335-1.502A11.956 11.956 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.877 9.877 0 01-5.031-1.377l-.361-.214-3.741.982.997-3.648-.235-.374A9.859 9.859 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118c5.467 0 9.882 4.415 9.882 9.882 0 5.467-4.415 9.882-9.882 9.882z"/></svg>`;
+
+async function loadData() {
+  try {
+    // Fixture
+    const fRes = await fetch('content/resultados/fixture.json');
+    const fData = await fRes.json();
+    renderFixture(fData.partidos);
+
+    // Galería
+    const gRes = await fetch('content/galeria/fotos.json');
+    const gData = await gRes.json();
+    renderGaleria(gData.fechas);
+
+    // Tienda
+    const tRes = await fetch('content/tienda/productos.json');
+    const tData = await tRes.json();
+    renderTienda(tData.productos);
+
+    // Noticias
+    const nRes = await fetch('content/noticias/index.json').catch(()=>null);
+    if(nRes && nRes.ok){
+      const nData = await nRes.json();
+      renderNoticias(nData.noticias || []);
+    } else {
+      renderNoticias([]);
+    }
+  } catch(e) {
+    console.error('Error cargando datos:', e);
+  }
+}
+
+function renderFixture(partidos) {
+  const v = partidos.filter(p=>p.resultado==='Victoria').length;
+  const e = partidos.filter(p=>p.resultado==='Empate').length;
+  const d = partidos.filter(p=>p.resultado==='Derrota').length;
+  document.getElementById('stat-total').textContent = partidos.length;
+  document.getElementById('stat-v').textContent = v;
+  document.getElementById('stat-e').textContent = e;
+  document.getElementById('stat-d').textContent = d;
+
+  const badges = {Victoria:'badge-w',Derrota:'badge-l',Empate:'badge-e',Próximo:'badge-next'};
+  const html = partidos.map(p => `
+    <div class="partido">
+      <div class="partido-fecha">${p.fecha}</div>
+      <div class="partido-equipos">CATAS FC <span class="vs-txt">vs</span> ${p.rival}</div>
+      <div class="partido-score">${p.goles_catas} — ${p.goles_rival}</div>
+      <span class="badge ${badges[p.resultado]||'badge-next'}">${p.resultado}</span>
+    </div>`).join('');
+  document.getElementById('fixture-container').innerHTML = html;
+}
+
+function renderGaleria(fechas) {
+  const html = fechas.map(f => `
+    <div class="fecha-section">
+      <div class="fecha-header">
+        <div class="fecha-titulo">${f.titulo}</div>
+        <div class="fecha-sub">${f.subtitulo}</div>
+      </div>
+      <div class="foto-grid">
+        ${f.fotos.map(foto=>`<div class="foto-item"><img src="${foto}" loading="lazy"/></div>`).join('')}
+      </div>
+    </div>`).join('');
+  document.getElementById('galeria-container').innerHTML = html;
+}
+
+function renderTienda(productos) {
+  const msgs = ['titular','alternativa','short'];
+  const html = productos.map((p,i) => `
+    <div class="producto">
+      <div class="producto-img"><img src="${p.imagen}"/></div>
+      <div class="producto-body">
+        <div class="producto-nombre">${p.nombre}</div>
+        <div class="producto-desc">${p.descripcion}</div>
+        <div class="producto-footer">
+          <div class="precio">${p.precio}</div>
+          <a class="btn-wsp" href="${WSP}${WSP_MSG[msgs[i]]||''}" target="_blank">${wspIcon} Consultar</a>
+        </div>
+      </div>
+    </div>`).join('');
+  document.getElementById('tienda-container').innerHTML = html;
+}
+
+function renderNoticias(noticias) {
+  const container = document.getElementById('noticias-container');
+  if(!noticias.length){
+    container.innerHTML = `
+      <div style="grid-column:span 3;text-align:center;padding:3rem;color:#8892a0;font-size:14px;">
+        Las noticias aparecerán acá cuando las publiques desde el panel admin.
+        <br><br>
+        <a href="https://www.instagram.com/catasfc_" target="_blank" style="color:#4fa3d1;text-decoration:none;font-weight:500;">Ver @catasfc_ en Instagram →</a>
+      </div>`;
+    return;
+  }
+  const html = noticias.map(n => `
+    <a class="noticia" href="${n.link}" target="_blank">
+      <div class="noticia-img"><img src="${n.imagen}"/></div>
+      <div class="noticia-body">
+        <div class="noticia-tipo">Instagram</div>
+        <div class="noticia-titulo">${n.title}</div>
+      </div>
+    </a>`).join('');
+  container.innerHTML = html;
+}
+
+loadData();
 </script>
 </body>
 </html>
