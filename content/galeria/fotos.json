@@ -1,19 +1,84 @@
 {
   "fechas": [
     {
-      "titulo": "Fecha 1 — vs Resaca FC",
-      "subtitulo": "2 — 5",
-      "fotos": ["fotos/fecha1/f1_01.jpg","fotos/fecha1/f1_02.jpg","fotos/fecha1/f1_03.jpg","fotos/fecha1/f1_04.jpg","fotos/fecha1/f1_05.jpg","fotos/fecha1/f1_06.jpg","fotos/fecha1/f1_07.jpg","fotos/fecha1/f1_08.jpg","fotos/fecha1/f1_09.jpg","fotos/fecha1/f1_10.jpg","fotos/fecha1/f1_11.jpg","fotos/fecha1/f1_12.jpg","fotos/fecha1/f1_13.jpg","fotos/fecha1/f1_14.jpg"]
+      "titulo": "Fecha 1 â vs Resaca FC",
+      "subtitulo": "2 â 5",
+      "fotos": [
+        "fotos/fecha1/f1_01.jpg",
+        "fotos/fecha1/f1_02.jpg",
+        "fotos/fecha1/f1_03.jpg",
+        "fotos/fecha1/f1_04.jpg",
+        "fotos/fecha1/f1_05.jpg",
+        "fotos/fecha1/f1_06.jpg",
+        "fotos/fecha1/f1_07.jpg",
+        "fotos/fecha1/f1_08.jpg",
+        "fotos/fecha1/f1_09.jpg",
+        "fotos/fecha1/f1_10.jpg",
+        "fotos/fecha1/f1_11.jpg",
+        "fotos/fecha1/f1_12.jpg",
+        "fotos/fecha1/f1_13.jpg",
+        "fotos/fecha1/f1_14.jpg"
+      ]
     },
     {
-      "titulo": "Fecha 2 — vs Banchester",
-      "subtitulo": "6 — 2",
-      "fotos": ["fotos/fecha2/f2_01.jpg","fotos/fecha2/f2_02.jpg","fotos/fecha2/f2_03.jpg","fotos/fecha2/f2_04.jpg","fotos/fecha2/f2_05.jpg","fotos/fecha2/f2_06.jpg","fotos/fecha2/f2_07.jpg","fotos/fecha2/f2_08.jpg","fotos/fecha2/f2_09.jpg","fotos/fecha2/f2_10.jpg","fotos/fecha2/f2_11.jpg","fotos/fecha2/f2_12.jpg","fotos/fecha2/f2_13.jpg","fotos/fecha2/f2_14.jpg","fotos/fecha2/f2_15.jpg","fotos/fecha2/f2_16.jpg","fotos/fecha2/f2_17.jpg","fotos/fecha2/f2_18.jpg"]
+      "titulo": "Fecha 2 â vs Banchester",
+      "subtitulo": "6 â 2",
+      "fotos": [
+        "fotos/fecha2/f2_01.jpg",
+        "fotos/fecha2/f2_02.jpg",
+        "fotos/fecha2/f2_03.jpg",
+        "fotos/fecha2/f2_04.jpg",
+        "fotos/fecha2/f2_05.jpg",
+        "fotos/fecha2/f2_06.jpg",
+        "fotos/fecha2/f2_07.jpg",
+        "fotos/fecha2/f2_08.jpg",
+        "fotos/fecha2/f2_09.jpg",
+        "fotos/fecha2/f2_10.jpg",
+        "fotos/fecha2/f2_11.jpg",
+        "fotos/fecha2/f2_12.jpg",
+        "fotos/fecha2/f2_13.jpg",
+        "fotos/fecha2/f2_14.jpg",
+        "fotos/fecha2/f2_15.jpg",
+        "fotos/fecha2/f2_16.jpg",
+        "fotos/fecha2/f2_17.jpg",
+        "fotos/fecha2/f2_18.jpg"
+      ]
     },
     {
-      "titulo": "Fecha 3 — vs Paris San Fernet",
-      "subtitulo": "6 — 6",
-      "fotos": ["fotos/fecha3/f3_01.jpg","fotos/fecha3/f3_02.jpg","fotos/fecha3/f3_03.jpg","fotos/fecha3/f3_04.jpg","fotos/fecha3/f3_05.jpg","fotos/fecha3/f3_06.jpg","fotos/fecha3/f3_07.jpg","fotos/fecha3/f3_08.jpg","fotos/fecha3/f3_09.jpg","fotos/fecha3/f3_10.jpg","fotos/fecha3/f3_11.jpg"]
+      "titulo": "Fecha 3 â vs Paris San Fernet",
+      "subtitulo": "6 â 6",
+      "fotos": [
+        "fotos/fecha3/f3_01.jpg",
+        "fotos/fecha3/f3_02.jpg",
+        "fotos/fecha3/f3_03.jpg",
+        "fotos/fecha3/f3_04.jpg",
+        "fotos/fecha3/f3_05.jpg",
+        "fotos/fecha3/f3_06.jpg",
+        "fotos/fecha3/f3_07.jpg",
+        "fotos/fecha3/f3_08.jpg",
+        "fotos/fecha3/f3_09.jpg",
+        "fotos/fecha3/f3_10.jpg",
+        "fotos/fecha3/f3_11.jpg"
+      ]
+    },
+    {
+      "titulo": "Fecha 4 â vs Desconocidos",
+      "subtitulo": "1 â 4",
+      "fotos": [
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_1.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_2.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_3.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_4.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_5.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_6.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_7.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_8.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_9.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_10.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_11.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_12.jpg",
+        "fotos/fecha-4-----vs-desco-1776533167305/foto_13.jpg"
+      ]
     }
   ]
 }
