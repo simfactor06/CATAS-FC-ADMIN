@@ -283,12 +283,21 @@ async function loadData() {
     const tData = await tRes.json();
     renderTienda(tData.productos);
 
-    // Noticias
-    const nRes = await fetch('content/noticias/index.json').catch(()=>null);
-    if(nRes && nRes.ok){
-      const nData = await nRes.json();
-      renderNoticias(nData.noticias || []);
-    } else {
+    // Noticias - cargar desde archivos individuales via GitHub API
+    try {
+      const nRes = await fetch('https://api.github.com/repos/simfactor06/CATAS-FC-ADMIN/contents/content/noticias?ref=main&t='+Date.now());
+      if(nRes.ok){
+        const files = await nRes.json();
+        const jsonFiles = Array.isArray(files) ? files.filter(f=>f.name.endsWith('.json')) : [];
+        const noticias = await Promise.all(jsonFiles.map(async f=>{
+          const r = await fetch(f.download_url+'?t='+Date.now());
+          return r.json();
+        }));
+        renderNoticias(noticias.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha)));
+      } else {
+        renderNoticias([]);
+      }
+    } catch(e) {
       renderNoticias([]);
     }
   } catch(e) {
