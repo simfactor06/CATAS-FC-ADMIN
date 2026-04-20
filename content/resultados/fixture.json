@@ -31,9 +31,9 @@
     {
       "fecha": "Fecha 5",
       "rival": "Paris San Fernet B",
-      "goles_catas": "-",
-      "goles_rival": "-",
-      "resultado": "Próximo"
+      "goles_catas": "5",
+      "goles_rival": "3",
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 6",
