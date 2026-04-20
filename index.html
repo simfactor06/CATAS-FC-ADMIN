@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
@@ -21,7 +22,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .page.active{display:block;}
 .hero{position:relative;height:520px;background:#0d1b2a;display:flex;align-items:flex-end;overflow:hidden;}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(to right,#0d1b2a 38%,rgba(13,27,42,0.35) 100%);z-index:1;}
-.hero-photo{position:absolute;right:0;top:0;bottom:0;width:62%;object-fit:cover;object-position:center 120%;}
+.hero-photo{position:absolute;right:0;top:0;bottom:0;width:62%;object-fit:cover;object-position:top center;}
 .hero-content{position:relative;z-index:2;padding:0 2.5rem 3.5rem;color:white;max-width:520px;}
 .hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#4fa3d1;font-weight:500;margin-bottom:10px;}
 .hero-heading{display:flex;align-items:center;gap:18px;margin-bottom:1rem;}
@@ -103,7 +104,44 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 .founded{color:rgba(255,255,255,0.55);font-size:11px;text-transform:uppercase;letter-spacing:1px;}
 .ig-btn{display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,0.15);padding:8px 18px;border-radius:6px;color:white;font-size:13px;text-decoration:none;}
 .ig-btn:hover{border-color:#4fa3d1;}
+
+@media(max-width:768px){
+nav{padding:0 1rem;height:56px;overflow-x:auto;}
+.nav-logo span{font-size:14px;}
+.nav-links{gap:1rem;flex-shrink:0;}
+.nav-links a{font-size:11px;letter-spacing:0.5px;}
+.hero{height:420px;}
+.hero-photo{width:100%;opacity:0.4;}
+.hero-content{padding:0 1.2rem 2rem;max-width:100%;}
+.hero-heading h1{font-size:38px;}
+.hero-escudo{width:60px;height:60px;}
+.hero-content p{font-size:13px;}
+.btn-s,.btn-o{padding:9px 16px;font-size:13px;}
+.inicio-bottom{padding:2rem 1.2rem;}
+.noticias-grid{grid-template-columns:1fr;}
+.page-inner{padding:1.5rem 1rem;}
+.plantel-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.jugador-nombre{font-size:13px;}
+.jugador-apodo,.jugador-pos{font-size:11px;}
+.fixture-inner{padding:1.5rem 1rem;}
+.fixture-stats{grid-template-columns:repeat(2,1fr);}
+.partido{flex-wrap:wrap;gap:6px;padding:1rem 0;}
+.partido-fecha{width:100%;font-size:11px;}
+.partido-equipos{font-size:13px;flex:1;}
+.partido-score{font-size:16px;min-width:60px;}
+.galeria-inner{padding:1.5rem 1rem;}
+.foto-grid{grid-template-columns:repeat(2,1fr);}
+.tienda-inner{padding:1.5rem 1rem;}
+.tienda-grid{grid-template-columns:1fr;gap:16px;}
+.producto-footer{flex-direction:column;align-items:flex-start;gap:10px;}
+.btn-wsp{width:100%;justify-content:center;}
+footer{padding:1.5rem 1rem;flex-direction:column;gap:1rem;text-align:center;}
+.footer-logo{justify-content:center;}
+.sec-title{font-size:22px;}
+.fstat-num{font-size:22px;}
+}
 </style>
+
 </head>
 <body>
 
@@ -123,6 +161,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 </nav>
 
 <!-- INICIO -->
+
 <div class="page active" id="page-inicio">
   <div class="hero">
     <div class="hero-ov"></div>
@@ -158,6 +197,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 </div>
 
 <!-- PLANTEL -->
+
 <div class="page" id="page-plantel">
   <div class="page-inner">
     <div class="sec-tag">Apertura 2026</div>
@@ -183,7 +223,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
     <div class="pos-section">
       <div class="pos-label">Mediocampistas</div>
       <div class="plantel-grid">
-        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">7</div></div><div class="jugador-info"><div class="jugador-nombre">Martín Córdoba</div><div class="jugador-apodo">"Gero"</div><div class="jugador-pos">Mediocampista</div></div></div>
+        <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">7</div></div><div class="jugador-info"><div class="jugador-nombre">Martín Córdoba</div><div class="jugador-apodo">"Kun"</div><div class="jugador-pos">Mediocampista</div></div></div>
         <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">10</div></div><div class="jugador-info"><div class="jugador-nombre">Máximo Wendenbourg</div><div class="jugador-apodo">"Primo Kyle"</div><div class="jugador-pos">Mediocampista</div></div></div>
         <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">21</div></div><div class="jugador-info"><div class="jugador-nombre">Lisandro Vargas</div><div class="jugador-apodo">"Chichi"</div><div class="jugador-pos">Mediocampista</div></div></div>
         <div class="jugador"><div class="jugador-foto"><img src="escudo.jpeg"/><div class="jnum">69</div></div><div class="jugador-info"><div class="jugador-nombre">Mariano Biancardi</div><div class="jugador-apodo">"Nano"</div><div class="jugador-pos">Mediocampista</div></div></div>
@@ -201,6 +241,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 </div>
 
 <!-- FIXTURE -->
+
 <div class="page" id="page-fixture">
   <div class="fixture-inner">
     <div class="sec-tag">Apertura 2026</div>
@@ -216,6 +257,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 </div>
 
 <!-- GALERÍA -->
+
 <div class="page" id="page-galeria">
   <div class="galeria-inner">
     <div class="sec-tag">Temporada 2026</div>
@@ -225,6 +267,7 @@ footer{background:#0d1b2a;color:rgba(255,255,255,0.4);padding:2rem 3rem;display:
 </div>
 
 <!-- TIENDA -->
+
 <div class="page" id="page-tienda">
   <div class="tienda-inner">
     <div class="sec-tag">Indumentaria oficial</div>
@@ -380,5 +423,6 @@ function renderNoticias(noticias) {
 
 loadData();
 </script>
+
 </body>
 </html>
