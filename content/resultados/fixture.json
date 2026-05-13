@@ -38,23 +38,23 @@
     {
       "fecha": "Fecha 6",
       "rival": "Potrero del Sur",
-      "goles_catas": "-",
-      "goles_rival": "-",
-      "resultado": "Próximo"
+      "goles_catas": "4",
+      "goles_rival": "4",
+      "resultado": "Empate"
     },
     {
       "fecha": "Fecha 7",
       "rival": "Sportivo",
-      "goles_catas": "-",
-      "goles_rival": "-",
-      "resultado": "Próximo"
+      "goles_catas": "2",
+      "goles_rival": "2",
+      "resultado": "Empate"
     },
     {
       "fecha": "Fecha 8",
       "rival": "Bidon",
-      "goles_catas": "-",
-      "goles_rival": "-",
-      "resultado": "Próximo"
+      "goles_catas": "2",
+      "goles_rival": "0",
+      "resultado": "Victoria"
     },
     {
       "fecha": "Fecha 9",
